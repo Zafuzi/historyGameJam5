@@ -7,6 +7,7 @@ func _ready():
 		#$CenterContainer/VBoxContainer/QuitButton.hide()
 
 func _on_PlayButton_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().change_scene_to(Globals.g_next_level)
 	pass # Replace with function body.
 
