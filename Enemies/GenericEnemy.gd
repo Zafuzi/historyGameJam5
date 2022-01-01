@@ -1,32 +1,43 @@
 extends KinematicBody
 
-export var speed = 10
-export var acceleration = 5
-export var gravity = 0.98
+var path = []
+var path_node = 0
 
-export (NodePath) var Player
-var player_node = null
+var speed = 20
+
+export(NodePath) var PlayerNodePath
+onready var nav = get_parent()
+
+var player = null
 
 signal was_shot
 
 func _ready():
-	if Player:
-		player_node = get_node(Player)
+	if PlayerNodePath:
+		player = get_node(PlayerNodePath)
+		
 	add_to_group("enemies")
-	
+
 func _physics_process(delta):
-	
-	var velocity = Vector3()
-	var direction = Vector3()
-	
-	if player_node:
-		# todo fix this
-		direction = player_node.transform.origin.normalized()
-	
-	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	velocity.y -= gravity
-	velocity = move_and_slide(velocity, Vector3.UP)
-	pass
+	if path_node < path.size():
+		var direction = (path[path_node] - global_transform.origin)
+		if direction.length() < 1:
+			path_node += 1
+		else:
+			var distance = global_transform.origin.distance_to(player.global_transform.origin)
+			if distance <= 10:
+				# todo start shooting!
+				pass
+			else:
+				move_and_slide(direction.normalized() * speed, Vector3.UP)
+
+func move_to(target_pos):
+	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path_node = 0
 
 func _on_GenericEnemy_was_shot():
 	queue_free()
+
+func _on_Timer_timeout():
+	if player:
+		move_to(player.global_transform.origin)
