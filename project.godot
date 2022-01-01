@@ -15,12 +15,19 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GAME_NAME"
+config/name="HistoryGameJam5"
+run/main_scene="res://StartMenu/StartMenu.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
+
+[autoload]
+
+Globals="*res://Globals.gd"
+BackgroundMusic="*res://Music/BackgroundMusic.tscn"
 
 [display]
 
-window/size/width=800
+window/size/width=1280
+window/size/height=720
 window/size/test_width=1280
 window/size/test_height=720
 window/dpi/allow_hidpi=true
@@ -45,7 +52,5 @@ ui_escape={
 [rendering]
 
 quality/2d/use_pixel_snap=true
-quality/filters/anisotropic_filter_level=16
 quality/subsurface_scattering/quality=2
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-quality/filters/msaa=2

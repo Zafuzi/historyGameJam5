@@ -1,0 +1,15 @@
+Hussar Nova OpenType feature list:
+
+Type these letter combinations to get these ligature characters:
+
+ffj: f f j
+
+fft: f f t
+
+fj: f j
+
+ft: f t
+
+Cannot Into Space Fonts Logo: C i S f
+
+Kotwica: p w
