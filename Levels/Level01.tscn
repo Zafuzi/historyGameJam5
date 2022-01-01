@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/platform.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/Material_003.material" type="Material" id=3]
+[ext_resource path="res://Enemies/GenericEnemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ProceduralSky" id=1]
 sun_latitude = 20.0
@@ -73,3 +74,7 @@ material/5 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="platform/StaticBody"]
 shape = SubResource( 10 )
+
+[node name="GenericEnemy" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 6, -47 )
+Player = NodePath("../Player")
