@@ -7,13 +7,11 @@ export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
 
-export (PackedScene) var Bullet
-
 onready var head = $Head
 onready var camera = $Head/Camera
 onready var raycast = $Head/Camera/BulletCast
 
-onready var bullet_decal = preload("res://Bullet/Bullet.tscn")
+onready var Bullet = preload("res://Bullet/PhysicalBullet.tscn")
 
 var velocity = Vector3()
 var camera_x_rotation = 0
@@ -53,12 +51,11 @@ func _process(delta):
 			shotTimerReady = false
 			$ShotTimer.start()
 			$GunShotSound.play()
-			var b = bullet_decal.instance()
-			var collider = raycast.get_collider()
-			if collider:
-				collider.add_child(b)
-				b.global_transform.origin = raycast.get_collision_point()
-				b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
+			
+			var b = Bullet.instance()
+			owner.add_child(b)
+			b.transform = $Gun/Muzzle.global_transform
+			b.velocity = -b.transform.basis.z * b.muzzle_velocity
 
 func _physics_process(delta):
 	head_basis = head.get_global_transform().basis
