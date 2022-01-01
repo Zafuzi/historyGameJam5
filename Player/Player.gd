@@ -25,6 +25,18 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
+	if Input.is_action_just_pressed("mouse_capture"):
+		get_tree().paused = false
+		$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().set_input_as_handled()
+	
+	if Input.is_action_just_pressed("mouse_release"):
+		get_tree().paused = true
+		$Head/Camera/CanvasLayer/Control/ResumeButton.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().set_input_as_handled()
+		
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 
@@ -34,17 +46,7 @@ func _input(event):
 			$Gun.rotate_x(deg2rad(-x_delta))
 			camera_x_rotation += x_delta
 			
-	if Input.is_action_just_pressed("mouse_capture"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	if Input.is_action_just_pressed("mouse_release"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel"):
-		$Head/Camera/CanvasLayer/Control/ResumeButton.show()
-		get_tree().paused = true
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 	if Input.is_action_just_pressed("shoot"):
 		if shotTimerReady:
@@ -90,9 +92,7 @@ func _on_ShotTimer_timeout():
 	shotTimerReady = true
 	pass # Replace with function body.
 
-
 func _on_ResumeButton_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
-	pass # Replace with function body.
