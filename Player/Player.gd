@@ -1,16 +1,26 @@
 extends KinematicBody
 
 export var speed = 10
+export var sprint_speed = 20
 export var acceleration = 5
 export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
 
+export (PackedScene) var Bullet
+
 onready var head = $Head
 onready var camera = $Head/Camera
+onready var raycast = $Head/Camera/BulletCast
+
+onready var bullet_decal = preload("res://Bullet/Bullet.tscn")
 
 var velocity = Vector3()
 var camera_x_rotation = 0
+var head_basis = Vector3()
+var direction = Vector3()
+
+var shotTimerReady = true
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -20,12 +30,14 @@ func _input(event):
 		return
 	
 	if event is InputEventMouseMotion:
-		head.rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
+		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 
 		var x_delta = event.relative.y * mouse_sensitivity
 		if camera_x_rotation + x_delta > -90 and camera_x_rotation + x_delta < 90: 
 			camera.rotate_x(deg2rad(-x_delta))
+			$Gun.rotate_x(deg2rad(-x_delta))
 			camera_x_rotation += x_delta
+			
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -33,14 +45,25 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("shoot"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		if shotTimerReady:
+			shotTimerReady = false
+			$ShotTimer.start()
+			$GunShotSound.play()
+			var b = bullet_decal.instance()
+			var collider = raycast.get_collider()
+			if collider:
+				collider.add_child(b)
+				b.global_transform.origin = raycast.get_collision_point()
+				b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
 
 func _physics_process(delta):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 		return
 		
-	var head_basis = head.get_global_transform().basis
+	head_basis = head.get_global_transform().basis
 	
-	var direction = Vector3()
+	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
 		direction -= head_basis.z
 	elif Input.is_action_pressed("move_backward"):
@@ -53,10 +76,19 @@ func _physics_process(delta):
 	
 	direction = direction.normalized()
 	
-	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	var move_speed = speed
+	if Input.is_action_pressed("sprint"):
+		move_speed = sprint_speed
+		
+	velocity = velocity.linear_interpolate(direction * move_speed, acceleration * delta)
 	velocity.y -= gravity
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_power
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+
+func _on_ShotTimer_timeout():
+	shotTimerReady = true
+	pass # Replace with function body.

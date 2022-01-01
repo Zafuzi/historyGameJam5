@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex"
+path="res://.import/bullet_decal.png-0c49d8166c61e37129b777faa20b7e55.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background.png"
-dest_files=[ "res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex" ]
+source_file="res://Sprites/bullet_decal.png"
+dest_files=[ "res://.import/bullet_decal.png-0c49d8166c61e37129b777faa20b7e55.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
