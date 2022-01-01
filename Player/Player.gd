@@ -23,12 +23,10 @@ var direction = Vector3()
 var shotTimerReady = true
 
 func _ready():
+	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		return
-	
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 
@@ -38,14 +36,19 @@ func _input(event):
 			$Gun.rotate_x(deg2rad(-x_delta))
 			camera_x_rotation += x_delta
 			
+	if Input.is_action_just_pressed("mouse_capture"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if Input.is_action_just_pressed("mouse_release"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
+		$Head/Camera/CanvasLayer/Control/ResumeButton.show()
+		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 	if Input.is_action_just_pressed("shoot"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
 		if shotTimerReady:
 			shotTimerReady = false
 			$ShotTimer.start()
@@ -58,9 +61,6 @@ func _process(delta):
 				b.look_at(raycast.get_collision_point() + raycast.get_collision_normal(), Vector3.UP)
 
 func _physics_process(delta):
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		return
-		
 	head_basis = head.get_global_transform().basis
 	
 	direction = Vector3()
@@ -91,4 +91,11 @@ func _physics_process(delta):
 
 func _on_ShotTimer_timeout():
 	shotTimerReady = true
+	pass # Replace with function body.
+
+
+func _on_ResumeButton_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = false
+	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 	pass # Replace with function body.

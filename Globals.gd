@@ -8,3 +8,4 @@ export (PackedScene) var g_previous_level
 func _ready():
 	if not g_next_level:
 		g_next_level = preload("res://Levels/Level01.tscn")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)	

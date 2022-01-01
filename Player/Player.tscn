@@ -50,6 +50,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ResumeButton" type="Button" parent="Head/Camera/CanvasLayer/Control"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -10.0
+margin_right = 32.0
+margin_bottom = 10.0
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BulletCast" type="RayCast" parent="Head/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
@@ -69,4 +84,5 @@ one_shot = true
 
 [node name="GunShotSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+[connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

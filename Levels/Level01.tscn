@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Bullet/Bullet.tscn" type="PackedScene" id=2]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.431373, 0.639216, 0.792157, 1 )
@@ -17,16 +16,16 @@ fog_enabled = true
 ss_reflections_enabled = true
 ssao_enabled = true
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=3]
 size = Vector3( 100, 2, 100 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 50, 1, 50 )
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 20, 20, 20 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 10, 10, 10 )
 
 [node name="Level01" type="Spatial"]
@@ -53,11 +52,11 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
-mesh = SubResource( 4 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 11, 0 )
@@ -66,11 +65,11 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody2"]
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="StaticBody3" type="StaticBody" parent="."]
 transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -4.49157, 11, -30.9318 )
@@ -79,11 +78,11 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody3"]
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody3"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="StaticBody4" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 11, 32 )
@@ -92,11 +91,11 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody4"]
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="StaticBody5" type="StaticBody" parent="."]
 transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 29.5084, 11, 1.06821 )
@@ -105,11 +104,8 @@ __meta__ = {
 }
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody5"]
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
-shape = SubResource( 7 )
-
-[node name="Bullet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -3 )
+shape = SubResource( 6 )
