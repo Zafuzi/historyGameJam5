@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/sights.png" type="Texture" id=2]
+[ext_resource path="res://assets/crosshair.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/gunshot.ogg" type="AudioStream" id=4]
 [ext_resource path="res://assets/rifle.glb" type="PackedScene" id=5]
 
@@ -45,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
+margin_left = -47.0
+margin_top = -48.0
+margin_right = 53.0
+margin_bottom = 52.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,7 +81,7 @@ shape = SubResource( 1 )
 transform = Transform( -6.51683e-07, 0, 4, 0, 4, 0, -4, 0, -6.51683e-07, 0.930338, 0.26546, -1.52482 )
 
 [node name="Muzzle" type="Spatial" parent="Gun"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 1.37383, 0, 2.38419e-07 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.12793, 0, 5.96046e-08 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -96,5 +96,6 @@ pitch_scale = 0.8
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
 [connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

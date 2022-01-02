@@ -5,7 +5,8 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5.73069, 1.06759, 1 )
 
-[node name="smoothWindowWall" type="StaticBody"]
+[node name="rockyWindowWall" type="StaticBody"]
+transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.0136729, 0, 0, 0, 0.764195, 0, 0, 0, 3.55198, 0, 2.71793, -0.0676548 )
@@ -24,3 +25,4 @@ transform = Transform( 0.0145635, 0, 0, 0, -0.750918, 0, 0, 0, 3.62365, 0, -2.72
 shape = SubResource( 1 )
 
 [node name="wall_window_rocky" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
