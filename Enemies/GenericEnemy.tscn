@@ -3,10 +3,10 @@
 [ext_resource path="res://Enemies/GenericEnemy.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleMesh" id=1]
-mid_height = 3.0
+mid_height = 4.0
 
 [sub_resource type="CapsuleShape" id=2]
-height = 3.0
+height = 4.0
 
 [node name="GenericEnemy" type="KinematicBody"]
 script = ExtResource( 1 )

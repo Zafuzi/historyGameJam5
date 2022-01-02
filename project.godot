@@ -85,6 +85,6 @@ mouse_release={
 [rendering]
 
 quality/driver/driver_name="GLES2"
-quality/filters/anisotropic_filter_level=1
 vram_compression/import_etc=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/filters/anisotropic_filter_level=1
