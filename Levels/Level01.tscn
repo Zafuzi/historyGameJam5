@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/platform.obj" type="ArrayMesh" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/wall_plank.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://assets/fence_wood.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/minimalist_fence.obj" type="ArrayMesh" id=16]
+[ext_resource path="res://godot assets/wooden_wall_plank.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
@@ -124,6 +125,9 @@ material/4 = null
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.77236, 10.8761, -6.30641 )
 mesh = ExtResource( 16 )
 material/0 = null
+
+[node name="wall_plank" parent="Navigation/NavigationMeshInstance/floor" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0879, 11.5221, 13.0293 )
 
 [node name="HitchingPost" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, -1, -13 )
