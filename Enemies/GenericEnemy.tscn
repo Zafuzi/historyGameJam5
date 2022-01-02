@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Enemies/GenericEnemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/rifle.glb" type="PackedScene" id=2]
 [ext_resource path="res://Bullet/PhysicalBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/gunshot.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/enemy_status_shooting.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/enemy_status_moving.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/enemy_status_idle.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/enemy_status_resting.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/enemy_status_covering.png" type="Texture" id=9]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 4.0
@@ -39,6 +44,34 @@ tracks/1/keys = {
 "values": [ Vector3( 1.4, 1.1, 0.7 ), Vector3( 1.4, 1.1, 0.8 ) ]
 }
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+} ]
+
 [node name="GenericEnemy" type="KinematicBody" groups=[
 "enemies",
 ]]
@@ -70,6 +103,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 [node name="RayCast" type="RayCast" parent="Eyes"]
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
+collide_with_areas = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RECOIL = SubResource( 4 )
@@ -82,8 +116,19 @@ pitch_scale = 0.9
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.4
 autostart = true
+
+[node name="RestTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="StatusLabel" type="AnimatedSprite3D" parent="."]
+transform = Transform( -4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 0, 4, 0 )
+frames = SubResource( 5 )
+animation = "4"
+playing = true
 [connection signal="was_shot" from="." to="." method="_on_GenericEnemy_was_shot"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
 [connection signal="body_entered" from="SightRange" to="." method="_on_SightRange_body_entered"]
 [connection signal="body_exited" from="SightRange" to="." method="_on_SightRange_body_exited"]
 [connection signal="timeout" from="MoveTimer" to="." method="_on_MoveTimer_timeout"]
+[connection signal="timeout" from="RestTimer" to="." method="_on_RestTimer_timeout"]
