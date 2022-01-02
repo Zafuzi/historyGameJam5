@@ -79,7 +79,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("sprint"):
 		move_speed = sprint_speed
 		
-	velocity = velocity.linear_interpolate(direction * move_speed, acceleration * delta)
+	velocity = velocity.linear_interpolate(direction * move_speed + velocity.y*Vector3.UP, acceleration * delta)
 	velocity.y -= gravity
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
