@@ -6,7 +6,7 @@ export var acceleration = 5
 export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
-export var recoil = 10
+export var recoil = 2
 
 var rng = RandomNumberGenerator.new()
 

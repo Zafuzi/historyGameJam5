@@ -25,4 +25,3 @@ transform = Transform( 0.0145635, 0, 0, 0, -0.750918, 0, 0, 0, 3.62365, 0, -2.72
 shape = SubResource( 1 )
 
 [node name="wall_window_rocky" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )

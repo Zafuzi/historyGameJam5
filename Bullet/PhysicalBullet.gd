@@ -9,9 +9,6 @@ onready var BulletImpact = preload("res://Bullet/BulletImpact.tscn")
 
 var velocity = Vector3.ZERO
 
-func _ready():
-	add_to_group("bullets")
-
 func _physics_process(delta):
 	velocity += g * delta
 	look_at(transform.origin + velocity.normalized(), Vector3.UP)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://godot assets/rockyDoorWall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://godot assets/rockyWindowWall.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://godot assets/smoothWall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/roof_point.glb" type="PackedScene" id=6]
 [ext_resource path="res://assets/roof_L.glb" type="PackedScene" id=7]
+[ext_resource path="res://Cover/CoverArea.tscn" type="PackedScene" id=8]
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360638, 0, -0.987617 )
@@ -46,3 +47,30 @@ transform = Transform( -0.0100703, 0, -0.999949, 0, 1, 0, 0.999949, 0, -0.010070
 
 [node name="smoothWindowWall2" parent="L-house" instance=ExtResource( 4 )]
 transform = Transform( -1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -29.3309, 2.92533, -44.9914 )
+
+[node name="CoverArea2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -9 )
+
+[node name="CoverArea8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -9 )
+
+[node name="CoverArea9" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 2 )
+
+[node name="CoverArea" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, -9 )
+
+[node name="CoverArea3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, -20 )
+
+[node name="CoverArea4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4, 3 )
+
+[node name="CoverArea5" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, 14 )
+
+[node name="CoverArea6" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 4, -9 )
+
+[node name="CoverArea7" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4, -20 )
