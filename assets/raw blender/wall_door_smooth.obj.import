@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wall_door_smooth.obj-8856b1fd8e8eba8f506bb99fcf221e37.mesh"
+
+[deps]
+
+files=[ "res://.import/wall_door_smooth.obj-8856b1fd8e8eba8f506bb99fcf221e37.mesh" ]
+
+source_file="res://assets/raw blender/wall_door_smooth.obj"
+dest_files=[ "res://.import/wall_door_smooth.obj-8856b1fd8e8eba8f506bb99fcf221e37.mesh", "res://.import/wall_door_smooth.obj-8856b1fd8e8eba8f506bb99fcf221e37.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

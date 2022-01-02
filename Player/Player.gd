@@ -6,10 +6,14 @@ export var acceleration = 5
 export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
+export var recoil = 10
+
+var rng = RandomNumberGenerator.new()
 
 onready var head = $Head
 onready var camera = $Head/Camera
 onready var raycast = $Head/Camera/BulletCast
+
 
 onready var Bullet = preload("res://Bullet/PhysicalBullet.tscn")
 
@@ -23,6 +27,7 @@ var shotTimerReady = true
 func _ready():
 	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	rng.randomize()
 
 func _input(event):
 	if Input.is_action_just_pressed("mouse_capture"):
@@ -47,6 +52,11 @@ func _input(event):
 			camera_x_rotation += x_delta
 			
 func _process(delta):
+	if shotTimerReady:
+		$Head/Camera/CanvasLayer/Control/TextureRect.visible = true
+	else:
+		$Head/Camera/CanvasLayer/Control/TextureRect.visible = false
+		
 		
 	if Input.is_action_just_pressed("shoot"):
 		if shotTimerReady:
@@ -58,6 +68,9 @@ func _process(delta):
 			owner.add_child(b)
 			b.transform = $Gun/Muzzle.global_transform
 			b.velocity = -b.transform.basis.z * b.muzzle_velocity
+			
+			add_player_recoil()
+
 
 func _physics_process(delta):
 	head_basis = head.get_global_transform().basis
@@ -96,3 +109,13 @@ func _on_ResumeButton_pressed():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
+
+func add_player_recoil():
+	rotate_y(deg2rad(rng.randi_range(-recoil,recoil)))
+
+	var x_delta = -recoil
+	if camera_x_rotation + x_delta > -90 and camera_x_rotation + x_delta < 90: 
+		camera.rotate_x(deg2rad(-x_delta))
+		$Gun.rotate_x(deg2rad(-x_delta))
+		camera_x_rotation += x_delta
+	
