@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/wall_plank.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="wall_plank" type="MeshInstance"]
+mesh = ExtResource( 2 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.318104, 0, 0, 0, 3.66596, 0, 0, 0, 3.62365, 0.0857437, 0.0530062, -0.0676548 )
+shape = SubResource( 1 )

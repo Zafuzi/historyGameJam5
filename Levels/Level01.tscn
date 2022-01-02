@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/platform.obj" type="ArrayMesh" id=2]
@@ -10,20 +10,29 @@
 [ext_resource path="res://godot assets/smoothWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://godot assets/house_L_st_wo.tscn" type="PackedScene" id=9]
 [ext_resource path="res://godot assets/rockyWindowWall.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/wall_door_smooth.glb" type="PackedScene" id=11]
+[ext_resource path="res://assets/wall_door_smooth.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://assets/wall_door_smooth.dae" type="PackedScene" id=13]
+[ext_resource path="res://assets/wall_plank.obj" type="ArrayMesh" id=14]
+[ext_resource path="res://assets/fence_wood.obj" type="ArrayMesh" id=15]
 
 [sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0.431373, 0.639216, 0.792157, 1 )
-sky_horizon_color = Color( 0.0313726, 0.0784314, 0.117647, 1 )
-sky_curve = 0.254558
-sky_energy = 0.08
+sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
+sky_horizon_color = Color( 0.592157, 0.905882, 0.921569, 1 )
+ground_bottom_color = Color( 0.901961, 1, 0.988235, 1 )
+ground_horizon_color = Color( 0.658824, 0.823529, 0.890196, 1 )
+sun_color = Color( 1, 0.835294, 0.835294, 1 )
 sun_latitude = 20.0
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-ambient_light_color = Color( 0.980392, 0.698039, 0.698039, 1 )
-ambient_light_energy = 5.0
+background_color = Color( 0.580392, 0.862745, 0.882353, 1 )
+ambient_light_color = Color( 1, 0.505882, 0.505882, 1 )
+ambient_light_energy = 3.0
 fog_enabled = true
+fog_color = Color( 1, 0.466667, 0.466667, 1 )
+fog_sun_color = Color( 1, 0.776471, 0.729412, 1 )
 fog_sun_amount = 1.0
 ss_reflections_enabled = true
 ssao_enabled = true
@@ -54,7 +63,6 @@ data = PoolVector3Array( -0.002, 4.1739, 5.6943, -0.002, -0.0065, 5.6943, 0.2437
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.501408, 0.619473, -0.604023, 0.538986, 0.769751, 0.34202, 0.676819, -0.154068, -0.719847, 2.158, 17.5005, -5.87845 )
-light_energy = 5.0
 shadow_enabled = true
 shadow_bias = 1.25
 
@@ -67,6 +75,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 [node name="Navigation" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35204, -6.81166, -6.70413 )
 navmesh = SubResource( 3 )
 
 [node name="platform" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
@@ -85,6 +94,7 @@ material/5 = null
 shape = SubResource( 9 )
 
 [node name="floor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32729, -0.584938, -7.24494 )
 mesh = SubResource( 11 )
 material/0 = null
 
@@ -92,6 +102,23 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/floor/StaticBody"]
 shape = SubResource( 12 )
+
+[node name="fence_wood" type="MeshInstance" parent="Navigation/NavigationMeshInstance/floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6951, 6.66508, -22.2662 )
+mesh = ExtResource( 15 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[node name="hitchingPost" type="MeshInstance" parent="Navigation/NavigationMeshInstance/floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0337, 4.64814, -32.376 )
+mesh = ExtResource( 7 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
 
 [node name="HitchingPost" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, -1, -13 )
@@ -128,6 +155,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2422, 15.6965, 22.4249 )
 [node name="rockyWindowWall" parent="Navigation/NavigationMeshInstance/L-house" instance=ExtResource( 10 )]
 transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -46.4754, 9.98051, 27.8174 )
 
+[node name="wall_door_smooth" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32748, 18.1533, -8.56844 )
+
+[node name="wall_door_smooth2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0602, 4.30905, 24.3096 )
+
+[node name="wall_door_smooth" type="MeshInstance" parent="Navigation/NavigationMeshInstance/wall_door_smooth2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3946, -0.26182, 9.74362 )
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="wall_plank" type="MeshInstance" parent="Navigation/NavigationMeshInstance/wall_door_smooth2/wall_door_smooth"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74031, 2.24202, -36.4179 )
+mesh = ExtResource( 14 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+
 [node name="GenericEnemy" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -60 )
 PlayerNodePath = NodePath("../../Player")
@@ -151,3 +200,19 @@ PlayerNodePath = NodePath("../../Player")
 [node name="GenericEnemy5" parent="Navigation" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 9, -57 )
 PlayerNodePath = NodePath("../../Player")
+
+[node name="wall_door_smooth" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.19764, 4.38562, -7.08344 )
+
+[node name="wall_door_smooth2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3642, 29.2152, -47.7457 )
+
+[node name="wall_door_smooth" type="MeshInstance" parent="wall_door_smooth2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7418, -6.47889, 24.3783 )
+mesh = ExtResource( 12 )
+material/0 = null
+
+[node name="wall_door_smooth" type="MeshInstance" parent="wall_door_smooth2/wall_door_smooth"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25603, -16.3006, 5.85706 )
+mesh = ExtResource( 12 )
+material/0 = null

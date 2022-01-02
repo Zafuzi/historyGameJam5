@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/wall_door_smooth.glb-a973031b7592a96b5fddf7d2bec35ad0.scn"
+path="res://.import/wall_smooth.glb-65e6893baf1fc6a1173ee2e81f23a07c.scn"
 
 [deps]
 
-source_file="res://assets/wall_door_smooth.glb"
-dest_files=[ "res://.import/wall_door_smooth.glb-a973031b7592a96b5fddf7d2bec35ad0.scn" ]
+source_file="res://assets/raw blender/wall_smooth.glb"
+dest_files=[ "res://.import/wall_smooth.glb-65e6893baf1fc6a1173ee2e81f23a07c.scn" ]
 
 [params]
 
