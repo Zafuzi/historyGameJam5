@@ -1,0 +1,13 @@
+# Blender MTL File: 'wall_window_smooth.blend'
+# Material Count: 1
+
+newmtl Material
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.384334 0.464623
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd rustic_wood_texture.png

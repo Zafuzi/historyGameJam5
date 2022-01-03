@@ -16,13 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="HistoryGameJam5"
-run/main_scene="res://StartMenu/StartMenu.tscn"
+run/main_scene="res://Assets/StartMenu/StartMenu.tscn"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 [autoload]
 
 Globals="*res://Globals.gd"
-BackgroundMusic="*res://Music/BackgroundMusic.tscn"
+BackgroundMusic="*res://Assets/Music/BackgroundMusic.tscn"
 
 [display]
 

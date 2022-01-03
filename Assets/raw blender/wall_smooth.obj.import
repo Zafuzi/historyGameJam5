@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wall_smooth.obj-e76517ae3247185649553040700513df.mesh"
+
+[deps]
+
+files=[ "res://.import/wall_smooth.obj-e76517ae3247185649553040700513df.mesh" ]
+
+source_file="res://Assets/raw blender/wall_smooth.obj"
+dest_files=[ "res://.import/wall_smooth.obj-e76517ae3247185649553040700513df.mesh", "res://.import/wall_smooth.obj-e76517ae3247185649553040700513df.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
