@@ -17,7 +17,11 @@ _global_script_class_icons={
 
 config/name="HistoryGameJam5"
 run/main_scene="res://Assets/StartMenu/StartMenu.tscn"
+boot_splash/image="res://Assets/Sprites/background.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Assets/Sprites/bullet_decal.png"
+config/macos_native_icon="res://bullet_decal.icns"
+config/windows_native_icon="res://bullet_decal.ico"
 
 [autoload]
 
