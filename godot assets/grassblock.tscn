@@ -61,6 +61,9 @@ material/0 = null
 [node name="MultiMeshInstance" type="MultiMeshInstance" parent="."]
 transform = Transform( 0.358526, 0, 0, 0, 1, 0, 0, 0, 0.526135, 0, 0, 0 )
 material_override = SubResource( 12 )
+cast_shadow = 0
+generate_lightmap = false
+lod_max_distance = 1.0
 multimesh = SubResource( 13 )
 
 [node name="grass" type="MeshInstance" parent="."]
