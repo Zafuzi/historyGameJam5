@@ -1,10 +1,10 @@
-# Blender MTL File: 'wall_door_smooth.blend'
+# Blender MTL File: 'wall_window_smooth.blend'
 # Material Count: 1
 
-newmtl wood
+newmtl Material
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
+Kd 0.800000 0.384334 0.464623
 Ks 0.000000 0.000000 0.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000

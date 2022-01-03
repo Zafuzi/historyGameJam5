@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/barrel.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+
+[node name="crate_wooden" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.2127, 0, 0, 0, 1.43125, 0, 0, 0, 1.25663, -0.0992198, 1.37247, -0.0827775 )
+shape = SubResource( 1 )
+
+[node name="barrel" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null

@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/platform.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/Materials/mud.tres" type="Material" id=3]
-[ext_resource path="res://Enemies/GenericEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://godot assets/fence_wooden.tscn" type="PackedScene" id=4]
 [ext_resource path="res://godot assets/rockyDoorWall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://godot assets/rockyWall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/hitchingPost.obj" type="ArrayMesh" id=7]
@@ -19,6 +19,8 @@
 [ext_resource path="res://godot assets/wooden_wall_plank.tscn" type="PackedScene" id=17]
 [ext_resource path="res://godot assets/grassblock.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Enemies/PoliceEnemy.tscn" type="PackedScene" id=19]
+[ext_resource path="res://godot assets/crate_wooden.tscn" type="PackedScene" id=20]
+[ext_resource path="res://godot assets/barrel.tscn" type="PackedScene" id=21]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
@@ -200,28 +202,26 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25603, -16.3006, 5.85706 )
 mesh = ExtResource( 12 )
 material/0 = null
 
-[node name="GenericEnemy" parent="Navigation" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -3, -129 )
-
 [node name="GenericEnemy" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66587, -3.05967, 36.6736 )
 
 [node name="grassblock" parent="." instance=ExtResource( 18 )]
-transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, 16.3827, -3.05407, -25.9399 )
-
-[node name="grassblock2" parent="." instance=ExtResource( 18 )]
-transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, 73.7519, -3.05407, 1.06637 )
-
-[node name="grassblock" parent="grassblock2" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04917, -3.05967, 1.12213 )
-skeleton = NodePath("../../GenericEnemy")
-
-[node name="grassblock" parent="grassblock2/grassblock" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8654, 0.719514, -1.12213 )
-skeleton = NodePath("../../..")
+transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, 14.7377, -5.98558, -27.0098 )
 
 [node name="grassblock3" parent="." instance=ExtResource( 18 )]
-transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, -100.199, -3.05407, 1.06637 )
+transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, -48.8709, -6.0801, 47.1333 )
 
 [node name="grassblock4" parent="." instance=ExtResource( 18 )]
-transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, -100.199, -3.05407, 1.06637 )
+transform = Transform( 29.3369, 0, 0, 0, 1, 0, 0, 0, 32.6823, -100.199, -6.05679, 1.06637 )
+
+[node name="crate_wooden" parent="." instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8115, -5.91126, 8.22307 )
+
+[node name="crate_wooden2" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0425, -5.91126, 10.6909 )
+
+[node name="crate_wooden2" parent="crate_wooden2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65728, 0, 7.27712 )
+
+[node name="fence_wooden" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5126, -3.80802, 13.1507 )

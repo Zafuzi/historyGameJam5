@@ -9,7 +9,7 @@ uniform_name = "albedo"
 
 [sub_resource type="VisualShader" id=11]
 code = "shader_type spatial;
-render_mode cull_disabled, specular_schlick_ggx;
+render_mode specular_disabled;
 
 uniform vec4 albedo : hint_color;
 
@@ -35,9 +35,9 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 0, 66.1957 )
-modes/cull = 2
-nodes/fragment/0/position = Vector2( 580, 160 )
+graph_offset = Vector2( 0, 261.964 )
+modes/specular = 4
+nodes/fragment/0/position = Vector2( 600, 360 )
 nodes/fragment/2/node = SubResource( 10 )
 nodes/fragment/2/position = Vector2( 225, 398.196 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
@@ -67,6 +67,6 @@ lod_max_distance = 1.0
 multimesh = SubResource( 13 )
 
 [node name="grass" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 5.58718, 0, 0, 0, 1, -0.78329, 3.47306, 0.0641221 )
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 1, -0.78329, 3.47306, 0.0641221 )
 mesh = ExtResource( 1 )
 material/0 = null
