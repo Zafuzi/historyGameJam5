@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wall_door_smooth.obj-4e9fe8c8c8445aaa7720a37b1f3d5e11.mesh"
+
+[deps]
+
+files=[ "res://.import/wall_door_smooth.obj-4e9fe8c8c8445aaa7720a37b1f3d5e11.mesh" ]
+
+source_file="res://Assets/wall_door_smooth.obj"
+dest_files=[ "res://.import/wall_door_smooth.obj-4e9fe8c8c8445aaa7720a37b1f3d5e11.mesh", "res://.import/wall_door_smooth.obj-4e9fe8c8c8445aaa7720a37b1f3d5e11.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

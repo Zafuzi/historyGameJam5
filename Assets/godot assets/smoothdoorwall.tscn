@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/wall_door_smooth.glb" type="PackedScene" id=2]
+
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 5.73069, 1.06759, 0.890615 )
+
+[node name="smoothWindowWall" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.0136729, 0, 0, 0, 1.08294, 0, 0, 0, 3.55198, 0, 2.44576, -0.0676548 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 0.0193433, 0, 0, 0, 3.37801, 0, 0, 0, 1.31573, 0, 0.0572989, -2.47747 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 0.0142886, 0, 0, 0, 3.35239, 0, 0, 0, 1.36669, 0, 0.151381, 2.34496 )
+shape = SubResource( 1 )
+
+[node name="wall_door_smooth" parent="." instance=ExtResource( 2 )]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/crooked_wooken_pole.obj-d642236c38592b28d787f3a00cecd022.mesh"
+
+[deps]
+
+files=[ "res://.import/crooked_wooken_pole.obj-d642236c38592b28d787f3a00cecd022.mesh" ]
+
+source_file="res://Assets/crooked_wooken_pole.obj"
+dest_files=[ "res://.import/crooked_wooken_pole.obj-d642236c38592b28d787f3a00cecd022.mesh", "res://.import/crooked_wooken_pole.obj-d642236c38592b28d787f3a00cecd022.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

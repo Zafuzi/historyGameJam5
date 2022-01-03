@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/wall_plank.obj-e22fa7c85ce08cee0acc9af386926fbc.mesh"
+
+[deps]
+
+files=[ "res://.import/wall_plank.obj-e22fa7c85ce08cee0acc9af386926fbc.mesh" ]
+
+source_file="res://Assets/wall_plank.obj"
+dest_files=[ "res://.import/wall_plank.obj-e22fa7c85ce08cee0acc9af386926fbc.mesh", "res://.import/wall_plank.obj-e22fa7c85ce08cee0acc9af386926fbc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
