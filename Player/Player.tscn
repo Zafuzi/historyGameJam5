@@ -11,9 +11,7 @@ height = 4.0
 [sub_resource type="CapsuleMesh" id=2]
 mid_height = 4.0
 
-[node name="Player" type="KinematicBody" groups=[
-"player",
-]]
+[node name="Player" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -83,7 +81,7 @@ shape = SubResource( 1 )
 transform = Transform( -6.51683e-07, 0, 4, 0, 4, 0, -4, 0, -6.51683e-07, 0.930338, 0.26546, -1.52482 )
 
 [node name="Muzzle" type="Spatial" parent="Gun"]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.12793, 0, 5.96046e-08 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.226598, 0, 1.49012e-08 )
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -103,5 +101,6 @@ material/0 = null
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
+
 [connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
