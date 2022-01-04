@@ -12,6 +12,7 @@ const TURN_SPEED = 10
 const GUN_RANGE = 40
 const COVER_RANGE = 30
 const SIGHT_RANGE = 60
+export var gun_shot_randomness = 5
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var playerRaycast = player.get_node("RayCast")
@@ -30,6 +31,8 @@ var isSprinting = 1
 var distance_to_player = 0
 
 onready var target = player
+
+var rng = RandomNumberGenerator.new()
 
 onready var nav = get_tree().get_nodes_in_group("navigation")[0]
 
@@ -78,6 +81,7 @@ func shoot():
 				owner.add_child(b)
 				b.transform = $Gun/Muzzle.global_transform
 				b.velocity = -b.transform.basis.z * b.muzzle_velocity
+				b.velocity += Vector3.ONE*rng.randi_range(-gun_shot_randomness,gun_shot_randomness)
 		
 func calculate_move_to(pos):
 	path = nav.get_simple_path(global_transform.origin, pos)

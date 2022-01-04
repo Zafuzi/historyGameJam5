@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/godot assets/rockyDoorWall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/godot assets/smoothWall.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/roof_point.glb" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Cover/CoverArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/roof_L.glb" type="PackedScene" id=8]
+[ext_resource path="res://Assets/crooked_wooken_pole.obj" type="ArrayMesh" id=9]
 
 [node name="Spatial" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.360638, 0, -0.987617 )
@@ -22,10 +23,10 @@ transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -36.439
 transform = Transform( 1.31521, 0, 0, 0, 1.13569, 0, 0, 0, 1.32227, -34.1697, 5.59127, -37.8705 )
 
 [node name="roof_L" parent="L-house" instance=ExtResource( 8 )]
-transform = Transform( 1.3547, 0, 0, 0, 1, 0, 0, 0, 1.63197, -33.8978, 5.77063, -42.9138 )
+transform = Transform( 1.3547, 0, 0, 0, 1.02344, 0, 0, 0, 1.71524, -34.1902, 5.93502, -43.3396 )
 
 [node name="roof_L2" parent="L-house" instance=ExtResource( 8 )]
-transform = Transform( -5.24537e-08, 0, 1.8, 0, 1, 0, -1.2, 0, -7.86805e-08, -38.6282, 5.53896, -43.6884 )
+transform = Transform( -5.24537e-08, 0, 1.8, 0, 1, 0, -1.31299, 0, -8.60889e-08, -38.6282, 5.53896, -43.6228 )
 
 [node name="smoothWall3" parent="L-house" instance=ExtResource( 2 )]
 transform = Transform( -1.07284e-07, 0, 1, 0, 1, 0, -1, 0, -1.07284e-07, -39.8062, 2.60998, -41.3459 )
@@ -37,16 +38,58 @@ transform = Transform( 1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -29.3942, 2
 transform = Transform( -0.0100703, 0, -0.999949, 0, 1, 0, 0.999949, 0, -0.0100703, -39.9952, 2.67311, -48.5813 )
 
 [node name="smoothWindowWall4" parent="L-house" instance=ExtResource( 5 )]
-transform = Transform( 1.98616e-08, 0, -1, 0, 1, 0, 1, 0, 1.98616e-08, -33.0011, 2.75774, -48.541 )
+transform = Transform( 1.98616e-08, 0, -1, 0, 1, 0, 1, 0, 1.98616e-08, -33.0011, 2.76714, -48.4455 )
 
 [node name="smoothWall2" parent="L-house" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -43.4799, 2.62109, -44.7815 )
+transform = Transform( 1, 0, 6.3573e-08, 0, 1, 0, -6.3573e-08, 0, 1, -43.4237, 2.6826, -44.7991 )
 
 [node name="rockyWall" parent="L-house" instance=ExtResource( 3 )]
 transform = Transform( -0.0100703, 0, -0.999949, 0, 1, 0, 0.999949, 0, -0.0100703, -33.0386, 2.80827, -35.007 )
 
 [node name="smoothWindowWall2" parent="L-house" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, 2.38498e-08, 0, 1, 0, -2.38498e-08, 0, -1, -29.3309, 2.92533, -44.9914 )
+
+[node name="crooked_wooken_pole" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -29.2456, 3.06073, -34.2399 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole2" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -36.4415, 3.06073, -34.5875 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole3" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -37.3082, 3.06073, -41.1666 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole4" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -43.3706, 3.06073, -41.1932 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole5" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -43.4096, 3.06073, -48.425 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole6" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.11083, 0, 0, 0, 1, -36.4472, 3.06073, -48.4178 )
+mesh = ExtResource( 9 )
+material/0 = null
+
+[node name="crooked_wooken_pole7" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.0857, 0, 0, 0, 1, -29.2844, 3.11854, -48.2672 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../crooked_wooken_pole")
+material/0 = null
+
+[node name="crooked_wooken_pole8" type="MeshInstance" parent="L-house"]
+transform = Transform( 1, 0, 0, 0, 1.0857, 0, 0, 0, 1, -29.2102, 3.11854, -41.4267 )
+mesh = ExtResource( 9 )
+skeleton = NodePath("../crooked_wooken_pole2")
+material/0 = null
 
 [node name="CoverArea2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -9 )

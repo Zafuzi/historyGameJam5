@@ -8,7 +8,7 @@ extents = Vector3( 5.73069, 1.06759, 1 )
 [node name="smoothWindowWall" type="StaticBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.0136729, 0, 0, 0, 1.08543, 0, 0, 0, 3.55198, 0, 2.51462, -0.0676548 )
+transform = Transform( 0.0136729, 0, 0, 0, 0.897665, 0, 0, 0, 3.55198, 0, 2.59294, -0.193639 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
@@ -20,7 +20,7 @@ transform = Transform( 0.0142886, 0, 0, 0, 3.31765, 0, 0, 0, 1.29222, 0, 0.05729
 shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
-transform = Transform( 0.0145635, 0, 0, 0, -0.979967, 0, 0, 0, 3.62365, 0, -2.49543, -0.0676548 )
+transform = Transform( 0.0145635, 0, 0, 0, -0.832829, 0, 0, 0, 3.62365, 0, -2.56992, -0.233388 )
 shape = SubResource( 1 )
 
 [node name="wall_window_smooth2" type="MeshInstance" parent="."]
