@@ -7,6 +7,8 @@ func _ready():
 	var os = OS.get_name()
 	if os == "HTML5":
 		$VBoxContainer/QuitButton.hide()
+	
+	$AudioStreamPlayer.play(2.1)
 
 func _on_PlayButton_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
