@@ -3,14 +3,12 @@ extends Control
 onready var loading_scene = preload("res://Assets/LoadingScreen.tscn")
 
 func _ready():
-	$AudioStreamPlayer.play(2.1)
+	BackgroundMusic.play_menu_music();
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# dont show quit button in html version of the game
 	var os = OS.get_name()
 	if os == "HTML5":
 		$VBoxContainer/QuitButton.hide()
-	
-	
 
 func _on_PlayButton_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
