@@ -27,7 +27,7 @@ var shotTimerReady = true
 func _ready():
 	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	rng.randomize()
+	#rng.randomize()
 
 func _input(event):
 	if Input.is_action_just_pressed("mouse_capture"):

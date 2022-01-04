@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Materials/mud.tres" type="Material" id=1]
 [ext_resource path="res://Assets/platform.obj" type="ArrayMesh" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Assets/Enemies/PoliceEnemy.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Assets/godot assets/crate_wooden.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/godot assets/barrel.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/StartMenu/StartMenu.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
@@ -73,9 +75,7 @@ environment = SubResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 
-[node name="Navigation" type="Navigation" parent="." groups=[
-"navigation",
-]]
+[node name="Navigation" type="Navigation" parent="." groups=["navigation"]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 navmesh = SubResource( 3 )
@@ -227,3 +227,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65728, 0, 7.27712 )
 
 [node name="fence_wooden" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5126, -3.80802, 13.1507 )
+
+[node name="level_completion_box" parent="." instance=ExtResource( 22 )]
+transform = Transform( 8.36718, 0, 0, 0, 3.86033, 0, 0, 0, 8.88799, 20.9017, -2.40562, 0.220264 )
+next_scene = ExtResource( 23 )

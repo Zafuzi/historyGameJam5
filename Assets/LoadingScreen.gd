@@ -19,11 +19,13 @@ func _ready():
 		print("nothing to load...")
 	
 func goto_scene(path): # Game requests to switch to this scene.
-	loader = ResourceLoader.load_interactive(path)
+	get_tree().change_scene(path)
+	
+	"""loader = ResourceLoader.load_interactive(path)
 	if loader == null: # Check for errors.
 		show_error()
 		return
-	set_process(true)
+	set_process(true)"""
 
 	#current_scene.queue_free() # Get rid of the old scene.
 
