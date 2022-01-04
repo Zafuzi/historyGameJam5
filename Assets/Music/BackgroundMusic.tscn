@@ -1,4 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D"]
+[ext_resource path="res://Assets/Music/BackgroundMusic.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Music/Ned_Kelly_Theme.ogg" type="AudioStream" id=2]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+pause_mode = 2
 bus = "BackgroundMusic"
+script = ExtResource( 1 )
+menu_music = [ ExtResource( 2 ) ]

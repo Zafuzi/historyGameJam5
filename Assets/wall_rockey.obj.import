@@ -16,5 +16,4 @@ dest_files=[ "res://.import/wall_rockey.obj-82935711e2bcb089f880083631a7caa6.mes
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
 offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+optimize_mesh=true

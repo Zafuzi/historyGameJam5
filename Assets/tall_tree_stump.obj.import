@@ -16,5 +16,4 @@ dest_files=[ "res://.import/tall_tree_stump.obj-3f912cf878ba8818a08732d02703b728
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
 offset_mesh=Vector3( 0, 0, 0 )
-octahedral_compression=true
-optimize_mesh_flags=4286
+optimize_mesh=true
