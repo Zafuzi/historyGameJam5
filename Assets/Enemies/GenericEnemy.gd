@@ -25,7 +25,7 @@ var shotTimerReady = false
 var path = []
 var path_node = 0
 
-const MOVE_SPEED = 8
+const MOVE_SPEED = 3
 const COVER_SPEED_MULTIPLIER = 1.2
 var isSprinting = 1
 
@@ -140,8 +140,13 @@ func move():
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
 			path_node += 1
+			stop_walk_animation_if_possible()
 		else:
-			move_and_slide(direction.normalized() * MOVE_SPEED * (isSprinting * COVER_SPEED_MULTIPLIER), Vector3.UP)
+			var x = move_and_slide(direction.normalized() * MOVE_SPEED * (isSprinting * COVER_SPEED_MULTIPLIER), Vector3.UP)
+			if x:
+				start_walking_animation_if_possible()
+			else:
+				stop_walk_animation_if_possible()
 
 func _physics_process(delta):
 	$Eyes.look_at(player.global_transform.origin, Vector3.UP)
@@ -172,14 +177,16 @@ func _physics_process(delta):
 			shoot()
 		RESTING:
 			move()
-	update_walk_animation_if_possible()
 	
 	$StatusLabel.play(str(state))
 
-func update_walk_animation_if_possible():
+func stop_walk_animation_if_possible():
 	if get_node_or_null("walkingAnimation"):
 		$walkingAnimation.playback_speed = 2
-		if state == MOVING or state == COVERING:
-			$walkingAnimation.play("walking")
-		else:
-			$walkingAnimation.play("RESET")
+		$walkingAnimation.play("RESET")
+func start_walking_animation_if_possible():
+	if get_node_or_null("walkingAnimation"):
+		$walkingAnimation.playback_speed = 2
+		$walkingAnimation.play("walking")
+		
+	
