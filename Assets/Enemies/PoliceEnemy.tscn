@@ -255,6 +255,7 @@ tracks/6/keys = {
 }
 
 [node name="GenericEnemy" type="KinematicBody" groups=["enemies"]]
+transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, 0, 0, 0 )
 script = ExtResource( 4 )
 gun_shot_randomness = 15
 bullet = ExtResource( 1 )
@@ -324,15 +325,6 @@ transform = Transform( 0.999985, 0.00530517, 0.00163586, -0.00552541, 0.979687, 
 
 [node name="arm_right" parent="police body" index="1"]
 transform = Transform( 0.856709, 0, 0.515801, 0, 1, 0, -0.515801, 0, 0.856709, 0, 0, 0 )
-
-[node name="body" parent="police body" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="leg_left" parent="police body" index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="leg_right" parent="police body" index="4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="walkingAnimation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 7 )

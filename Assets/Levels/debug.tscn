@@ -22,9 +22,9 @@
 [ext_resource path="res://Assets/godot assets/crate_wooden.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/godot assets/barrel.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Assets/StartMenu/StartMenu.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Levels/Level1.tscn" type="PackedScene" id=23]
 
-[sub_resource type="ProceduralSky" id=1]
+[sub_resource type="ProceduralSky" id=7]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
 sky_horizon_color = Color( 0.592157, 0.905882, 0.921569, 1 )
 ground_bottom_color = Color( 0.901961, 1, 0.988235, 1 )
@@ -34,7 +34,7 @@ sun_latitude = 20.0
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
-background_sky = SubResource( 1 )
+background_sky = SubResource( 7 )
 background_color = Color( 0.580392, 0.862745, 0.882353, 1 )
 ambient_light_color = Color( 1, 0.505882, 0.505882, 1 )
 fog_enabled = true
