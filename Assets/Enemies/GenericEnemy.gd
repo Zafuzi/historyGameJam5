@@ -12,7 +12,8 @@ const TURN_SPEED = 10
 const GUN_RANGE = 40
 const COVER_RANGE = 30
 const SIGHT_RANGE = 60
-export var gun_shot_randomness = 5
+export var gun_shot_randomness = 5 
+
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var playerRaycast = player.get_node("RayCast")
@@ -171,5 +172,14 @@ func _physics_process(delta):
 			shoot()
 		RESTING:
 			move()
+	update_walk_animation_if_possible()
 	
 	$StatusLabel.play(str(state))
+
+func update_walk_animation_if_possible():
+	if get_node_or_null("walkingAnimation"):
+		$walkingAnimation.playback_speed = 2
+		if state == MOVING or state == COVERING:
+			$walkingAnimation.play("walking")
+		else:
+			$walkingAnimation.play("RESET")

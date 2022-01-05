@@ -6,6 +6,7 @@
 extents = Vector3( 1, 1, 0.615145 )
 
 [node name="crate_wooden" type="StaticBody"]
+transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.0521, 0, 0, 0, 1.07547, 0, 0, 0, 1.81647, -0.0992198, 0.918717, 0.054666 )

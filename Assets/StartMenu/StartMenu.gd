@@ -11,6 +11,7 @@ func _ready():
 		$VBoxContainer/QuitButton.hide()
 
 func _on_PlayButton_pressed():
+	BackgroundMusic.pause_music()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().change_scene_to(loading_scene)
 

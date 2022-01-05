@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/tall_tree_stump.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 0.615145 )
+
+[node name="tree_trunk" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.708338, 0, 0, 0, 2.18998, 0, 0, 0, 1.27505, 0.164842, 1.76283, 0.054666 )
+shape = SubResource( 1 )
+
+[node name="tall_tree_stump" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.663131, 0 )
+mesh = ExtResource( 1 )
+material/0 = null

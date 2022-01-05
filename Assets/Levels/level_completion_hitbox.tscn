@@ -1,8 +1,69 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Levels/level_completion_hitbox.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=3]
+constant = 0.4
+
+[sub_resource type="VisualShaderNodeColorUniform" id=4]
+uniform_name = "ColorUniform"
+
+[sub_resource type="VisualShaderNodeScalarConstant" id=7]
+constant = 0.194
+
+[sub_resource type="VisualShader" id=5]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx, unshaded, shadows_disabled;
+
+uniform vec4 ColorUniform : hint_color;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:3
+	vec3 n_out3p0 = ColorUniform.rgb;
+	float n_out3p1 = ColorUniform.a;
+
+// Scalar:2
+	float n_out2p0 = 0.400000;
+
+// Scalar:4
+	float n_out4p0 = 0.194000;
+
+// Output:0
+	ALBEDO = n_out3p0;
+	ALPHA = n_out2p0;
+	EMISSION = vec3(n_out4p0);
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, 105.797 )
+flags/shadows_disabled = true
+flags/unshaded = true
+nodes/fragment/0/position = Vector2( 680, 100 )
+nodes/fragment/2/node = SubResource( 3 )
+nodes/fragment/2/position = Vector2( 354, 215 )
+nodes/fragment/3/node = SubResource( 4 )
+nodes/fragment/3/position = Vector2( 360, 80 )
+nodes/fragment/4/node = SubResource( 7 )
+nodes/fragment/4/position = Vector2( 248, 285.797 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 2, 0, 0, 1, 4, 0, 0, 5 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/ColorUniform = Color( 0.458824, 0.941176, 0.478431, 1 )
 
 [sub_resource type="CubeMesh" id=2]
 
@@ -14,6 +75,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = SubResource( 6 )
 mesh = SubResource( 2 )
 material/0 = null
 
