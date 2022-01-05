@@ -1,0 +1,51 @@
+the general idea for the fights.
+
+-----
+Level 1: "bushranging with Harry Power" (tutorial)
+-----
+Ned from a young age begins to robs people, with Harry Power (his "mentor")
+
+this is just a free level meant as a intro to the mechanics and world
+
+can either be a tutorial about how to fight or an pretent "robbery"
+
+----
+Level 2.1:   Fitzpatrick incident
+----
+A policeman comes to his house and he has to fight back (and murders him).
+
+----
+Level 2.2: run away from the police
+----
+more police come after him and he has to excape
+
+
+----
+Level 3  Stringybark Creek police Murders 
+----
+band ambushes a bunch of police
+- meant to be easy
+
+
+----
+level 3.x -Filler: Ned tries to run away form the police while getting chased
+----
+
+
+----
+Level 4 Euroa raid (bank raid)
+----
+free bank raid with only acouple of police
+
+----
+Level 4.2 Jeriderie raid (another bank raid)
+----
+some amount of police come this time 
+
+---------
+Level 5 THE LAST STAND
+---------
+ned gains alot of heath and is then able to fight a bunch of policeman.
+the police can be procedurally spawned
+
+

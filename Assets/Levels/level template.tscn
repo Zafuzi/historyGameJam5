@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Materials/mud.tres" type="Material" id=2]
+[ext_resource path="res://Assets/godot assets/barrel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/godot assets/grassblock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/godot assets/tall_tree_trunk.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/godot assets/rock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/godot assets/big rock formation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/godot assets/fence_wooden.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 2 )
+size = Vector3( 300, 2, 300 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -150, 1, 150, 150, 1, 150, -150, -1, 150, 150, 1, 150, 150, -1, 150, -150, -1, 150, 150, 1, -150, -150, 1, -150, 150, -1, -150, -150, 1, -150, -150, -1, -150, 150, -1, -150, 150, 1, 150, 150, 1, -150, 150, -1, 150, 150, 1, -150, 150, -1, -150, 150, -1, 150, -150, 1, -150, -150, 1, 150, -150, -1, -150, -150, 1, 150, -150, -1, 150, -150, -1, -150, 150, 1, 150, -150, 1, 150, 150, 1, -150, -150, 1, 150, -150, 1, -150, 150, 1, -150, -150, -1, 150, 150, -1, 150, -150, -1, -150, 150, -1, 150, 150, -1, -150, -150, -1, -150 )
+
+[sub_resource type="ProceduralSky" id=3]
+sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
+sky_horizon_color = Color( 0.592157, 0.905882, 0.921569, 1 )
+ground_bottom_color = Color( 0.901961, 1, 0.988235, 1 )
+ground_horizon_color = Color( 0.658824, 0.823529, 0.890196, 1 )
+sun_color = Color( 1, 0.835294, 0.835294, 1 )
+sun_latitude = 20.0
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+background_color = Color( 0.580392, 0.862745, 0.882353, 1 )
+ambient_light_color = Color( 1, 0.505882, 0.505882, 1 )
+fog_enabled = true
+fog_color = Color( 1, 0.466667, 0.466667, 1 )
+fog_sun_color = Color( 1, 0.776471, 0.729412, 1 )
+fog_sun_amount = 1.0
+ss_reflections_enabled = true
+ssao_enabled = true
+
+[node name="Spatial" type="Spatial"]
+
+[node name="floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9125, -6.91126, 22.1018 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.319, 96.6019 )
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.89653, 49.878 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="crate_wooden" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 9.34501, -5.87259, 46.485 )
+
+[node name="grassblock" parent="." instance=ExtResource( 4 )]
+transform = Transform( 37.7911, 0, 0, 0, 1.38423, 0, 0, 0, 44.5853, 2.29884, -5.8726, 47.0491 )
+skeleton = NodePath("../crate_wooden")
+
+[node name="tree_trunk" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1.54547, 0, 0, 0, 1.59451, 0, 0, 0, 1.3642, 6.29912, -5.91126, 22.8912 )
+
+[node name="crate_wooden2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 12.6472, -5.87259, 38.7782 )
+
+[node name="crate_wooden3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 6.19187, -5.87259, 41.8098 )
+
+[node name="rock" parent="." instance=ExtResource( 6 )]
+transform = Transform( 4.34823, 0, 0, 0, 5.36814, 0, 0, 0, 2.49893, 18.2344, -6.45805, 44.4345 )
+
+[node name="rock2" parent="rock" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock5" parent="rock" instance=ExtResource( 6 )]
+transform = Transform( -0.820692, 0.67159, -0.100427, -0.880475, -2.04625, -0.588866, -2.13298, -2.13594, 2.66172, 0.0509753, 1.52975, -1.9577 )
+
+[node name="rock2" parent="rock/rock5" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock5" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock/rock5" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock/rock5/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock5/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.296289, -5.33318, -0.228228, 7.05781, -0.427437, -0.861753, 0.877693, -0.55495, 2.43382, 17.144, -4.69352, 18.7972 )
+
+[node name="rock2" parent="rock2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock2/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock2/rock4" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="big rock formation" parent="." instance=ExtResource( 7 )]
+transform = Transform( -0.725579, 0, 0.688139, 0, 1, 0, -0.688139, 0, -0.725579, -5.27357, 0, 11.591 )
+
+[node name="big rock formation" parent="big rock formation" instance=ExtResource( 7 )]
+transform = Transform( 0.922289, 0, 0.386502, 0, 1, 0, -0.386502, 0, 0.922289, -61.5194, 0.995493, -20.6428 )
+
+[node name="big rock formation" parent="big rock formation/big rock formation" instance=ExtResource( 7 )]
+transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
+
+[node name="fence_wooden" parent="." instance=ExtResource( 8 )]
+transform = Transform( -0.0454153, 0, -0.998968, 0, 1, 0, 0.998968, 0, -0.0454153, -29.4293, -5.91126, 29.5911 )
