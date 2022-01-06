@@ -12,7 +12,9 @@ const TURN_SPEED = 10
 const GUN_RANGE = 40
 const COVER_RANGE = 30
 const SIGHT_RANGE = 60
-export var gun_shot_randomness = 5
+export var gun_shot_randomness = 5 
+export var health = 2
+
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var playerRaycast = player.get_node("RayCast")
@@ -24,7 +26,7 @@ var shotTimerReady = false
 var path = []
 var path_node = 0
 
-const MOVE_SPEED = 8
+const MOVE_SPEED = 3
 const COVER_SPEED_MULTIPLIER = 1.2
 var isSprinting = 1
 
@@ -58,7 +60,10 @@ func _on_RestTimer_timeout():
 			state = RESTING
 	
 func _on_GenericEnemy_was_shot():
-	queue_free()
+	health-=1
+	if health<=0:
+		queue_free()
+
 
 func _on_SightRange_body_entered(body):
 	if body.is_in_group("player"):
@@ -82,6 +87,7 @@ func shoot():
 				b.transform = $Gun/Muzzle.global_transform
 				b.velocity = -b.transform.basis.z * b.muzzle_velocity
 				b.velocity += Vector3.ONE*rng.randi_range(-gun_shot_randomness,gun_shot_randomness)
+				b.emit_group = "enemies"
 		
 func calculate_move_to(pos):
 	path = nav.get_simple_path(global_transform.origin, pos)
@@ -139,8 +145,13 @@ func move():
 		var direction = (path[path_node] - global_transform.origin)
 		if direction.length() < 1:
 			path_node += 1
+			stop_walk_animation_if_possible()
 		else:
-			move_and_slide(direction.normalized() * MOVE_SPEED * (isSprinting * COVER_SPEED_MULTIPLIER), Vector3.UP)
+			var x = move_and_slide(direction.normalized() * MOVE_SPEED * (isSprinting * COVER_SPEED_MULTIPLIER), Vector3.UP)
+			if x:
+				start_walking_animation_if_possible()
+			else:
+				stop_walk_animation_if_possible()
 
 func _physics_process(delta):
 	$Eyes.look_at(player.global_transform.origin, Vector3.UP)
@@ -173,3 +184,14 @@ func _physics_process(delta):
 			move()
 	
 	$StatusLabel.play(str(state))
+
+func stop_walk_animation_if_possible():
+	if get_node_or_null("walkingAnimation"):
+		$walkingAnimation.playback_speed = 2
+		$walkingAnimation.play("RESET")
+func start_walking_animation_if_possible():
+	if get_node_or_null("walkingAnimation"):
+		$walkingAnimation.playback_speed = 2
+		$walkingAnimation.play("walking")
+		
+	

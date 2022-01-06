@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/godot assets/rock.tscn" type="PackedScene" id=1]
+
+[node name="big rock formation" type="Spatial"]
+
+[node name="rock" parent="." instance=ExtResource( 1 )]
+transform = Transform( 4.34823, 0, 0, 0, -4.98268, -0.929843, 0, 1.99747, -2.31949, 0, 0, -26.9782 )
+
+[node name="rock2" parent="rock" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock/rock4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock5" parent="rock" instance=ExtResource( 1 )]
+transform = Transform( -0.820692, 0.67159, -0.100427, -0.880475, -2.04625, -0.588866, -2.13298, -2.13594, 2.66172, 0.0509753, 1.52975, -1.9577 )
+
+[node name="rock2" parent="rock/rock5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock/rock5" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock/rock5/rock4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock5/rock4" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 7.05455, 0, 0, 0, 10.479, 0, 0, 0, 11.7985, 14.1291, 8.37359, 0 )

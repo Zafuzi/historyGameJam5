@@ -1,9 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sounds/gunshot.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Assets/rifle.glb" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sprites/heart_full.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/heart_empty.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "full",
+"speed": 0.0
+} ]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 4.0
@@ -11,7 +26,9 @@ height = 4.0
 [sub_resource type="CapsuleMesh" id=2]
 mid_height = 4.0
 
-[node name="Player" type="KinematicBody" groups=["player"]]
+[node name="Player" type="KinematicBody" groups=[
+"player",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -45,10 +62,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -47.0
-margin_top = -48.0
-margin_right = 53.0
-margin_bottom = 52.0
+margin_left = -50.0
+margin_top = -50.0
+margin_right = 50.0
+margin_bottom = 50.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,11 +86,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Heart0" type="AnimatedSprite" parent="Head/Camera/CanvasLayer/Control"]
+position = Vector2( 576, 64 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "full"
+
+[node name="Heart1" type="AnimatedSprite" parent="Head/Camera/CanvasLayer/Control"]
+position = Vector2( 640, 64 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "full"
+
+[node name="Heart2" type="AnimatedSprite" parent="Head/Camera/CanvasLayer/Control"]
+position = Vector2( 704, 64 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "empty"
+
 [node name="BulletCast" type="RayCast" parent="Head/Camera"]
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="." groups=[
+"player",
+]]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
 
@@ -101,6 +138,6 @@ material/0 = null
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
-
+[connection signal="was_shot" from="." to="." method="_on_Player_was_shot"]
 [connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]

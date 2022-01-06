@@ -3,9 +3,6 @@
 [ext_resource path="res://Assets/Bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/bullet_decal.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="QuadMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
@@ -25,4 +22,5 @@ material/0 = SubResource( 2 )
 wait_time = 20.0
 one_shot = true
 autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

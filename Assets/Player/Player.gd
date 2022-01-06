@@ -7,6 +7,8 @@ export var gravity = 0.98
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
 export var recoil = 2
+export var health = 2
+signal was_shot
 
 var rng = RandomNumberGenerator.new()
 
@@ -16,6 +18,8 @@ onready var raycast = $Head/Camera/BulletCast
 
 
 onready var Bullet = preload("res://Assets/Bullet/PhysicalBullet.tscn")
+
+
 
 var velocity = Vector3()
 var camera_x_rotation = 0
@@ -119,3 +123,9 @@ func add_player_recoil():
 		$Gun.rotate_x(deg2rad(-x_delta))
 		camera_x_rotation += x_delta
 	
+
+
+func _on_Player_was_shot():
+	health -= 1
+	if health <= 0:
+		get_tree().reload_current_scene() 
