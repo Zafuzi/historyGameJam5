@@ -13,6 +13,7 @@ const GUN_RANGE = 40
 const COVER_RANGE = 30
 const SIGHT_RANGE = 60
 export var gun_shot_randomness = 5 
+export var health = 2
 
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
@@ -59,7 +60,10 @@ func _on_RestTimer_timeout():
 			state = RESTING
 	
 func _on_GenericEnemy_was_shot():
-	queue_free()
+	health-=1
+	if health<=0:
+		queue_free()
+
 
 func _on_SightRange_body_entered(body):
 	if body.is_in_group("player"):
@@ -83,6 +87,7 @@ func shoot():
 				b.transform = $Gun/Muzzle.global_transform
 				b.velocity = -b.transform.basis.z * b.muzzle_velocity
 				b.velocity += Vector3.ONE*rng.randi_range(-gun_shot_randomness,gun_shot_randomness)
+				b.emit_group = "enemies"
 		
 func calculate_move_to(pos):
 	path = nav.get_simple_path(global_transform.origin, pos)

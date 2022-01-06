@@ -73,7 +73,7 @@ __meta__ = {
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape" type="CollisionShape" parent="." groups=["player"]]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
 
@@ -102,5 +102,6 @@ enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
 
+[connection signal="was_shot" from="." to="." method="_on_Player_was_shot"]
 [connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
