@@ -39,11 +39,11 @@ margin_top = 304.0
 margin_right = 1051.0
 margin_bottom = 415.0
 size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.92549, 0.898039, 0.815686, 1 )
 custom_colors/font_color_shadow = Color( 0.392157, 0.368627, 0.352941, 1 )
 custom_constants/shadow_offset_x = 7
 custom_constants/shadow_offset_y = 6
-custom_fonts/font = SubResource( 1 )
 text = "Shootout Kelly"
 
 [node name="TitleScreen" type="Sprite" parent="CenterContainer"]
@@ -93,7 +93,6 @@ margin_bottom = 117.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
 text = "Quit"
-
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

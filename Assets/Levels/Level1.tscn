@@ -148,7 +148,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
 [node name="rock2" parent="rock/rock6/rock4" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
+[node name="rock4" parent="rock/rock6/rock4" instance=ExtResource( 3 )]
+transform = Transform( 1, 2.98023e-08, 0, 0, 0.690138, 0.33688, 5.96046e-08, -1.55459, 0.690138, -3.86779, 18.8032, -42.1532 )
+
 [node name="rock3" parent="rock/rock6/rock4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock5" parent="rock/rock6/rock4" instance=ExtResource( 3 )]
+transform = Transform( 2.80812, -0.246175, 0.00725621, 0.149651, 2.65916, 0.421582, -0.132371, -1.93878, 2.66554, -1.79395, 35.4046, -26.363 )
+
+[node name="rock7" parent="rock" instance=ExtResource( 3 )]
+transform = Transform( -0.432274, -3.06189, -0.840198, 3.82759, -0.231807, -0.467345, 0.773895, -3.26125, 2.44393, -22.2034, 0.328704, -50.8114 )
+
+[node name="rock2" parent="rock/rock7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock3" parent="rock/rock7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
+
+[node name="rock4" parent="rock/rock7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
+
+[node name="rock2" parent="rock/rock7/rock4" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
+
+[node name="rock4" parent="rock/rock7/rock4" instance=ExtResource( 3 )]
+transform = Transform( 1, 2.98023e-08, 0, 0, 0.690138, 0.33688, 5.96046e-08, -1.55459, 0.690138, -3.86779, 18.8032, -42.1532 )
+
+[node name="rock3" parent="rock/rock7/rock4" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
 [node name="big rock formation" parent="rock" instance=ExtResource( 8 )]
@@ -158,6 +185,30 @@ transform = Transform( -0.166868, 0, 0.158257, 0, 0.186284, 0, -0.275374, 0, -0.
 transform = Transform( 0.922289, 0, 0.386502, 0, 1, 0, -0.386502, 0, 0.922289, -61.5194, 0.995493, -20.6428 )
 
 [node name="big rock formation" parent="rock/big rock formation/big rock formation" instance=ExtResource( 8 )]
+transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
+
+[node name="big rock formation2" parent="rock/big rock formation" instance=ExtResource( 8 )]
+transform = Transform( -0.327793, 0, 0.944747, 0, 1, 0, -0.944751, 0, -0.327797, 136.757, 0.995493, 66.8914 )
+
+[node name="big rock formation2" parent="rock" instance=ExtResource( 8 )]
+transform = Transform( -0.160238, 0, -0.164967, 0, 0.186284, 0, 0.287048, 0, -0.27882, -28.1943, 1.20303, -54.7861 )
+
+[node name="big rock formation" parent="rock/big rock formation2" instance=ExtResource( 8 )]
+transform = Transform( 0.922289, 0, 0.386502, 0, 1, 0, -0.386502, 0, 0.922289, -61.5194, 0.995493, -20.6428 )
+
+[node name="big rock formation" parent="rock/big rock formation2/big rock formation" instance=ExtResource( 8 )]
+transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
+
+[node name="big rock formation3" parent="rock/big rock formation2" instance=ExtResource( 8 )]
+transform = Transform( -0.239311, 0, 0.970941, 0, 0.737131, 0, -0.970945, 0, -0.239315, 82.3176, -5.31452, 39.4288 )
+
+[node name="big rock formation" parent="rock/big rock formation2/big rock formation3" instance=ExtResource( 8 )]
+transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
+
+[node name="big rock formation2" parent="rock/big rock formation2" instance=ExtResource( 8 )]
+transform = Transform( -0.327793, 0, 0.944747, 0, 1, 0, -0.944751, 0, -0.327797, 136.757, 0.995493, 66.8914 )
+
+[node name="big rock formation" parent="rock/big rock formation2/big rock formation2" instance=ExtResource( 8 )]
 transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
 
 [node name="fence_wooden" parent="." instance=ExtResource( 7 )]
@@ -223,7 +274,15 @@ transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0,
 [node name="fence_wooden" parent="fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="Navigation" type="Navigation" parent="." groups=["navigation"]]
+[node name="fence_wooden3" parent="fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 7 )]
+transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71154e-08, 0, 0.909838, -28.7775, 0.332694, -4.22525 )
+
+[node name="fence_wooden" parent="fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
+
+[node name="Navigation" type="Navigation" parent="." groups=[
+"navigation",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96802, 0 )
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
