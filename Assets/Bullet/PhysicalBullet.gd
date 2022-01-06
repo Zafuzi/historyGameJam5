@@ -2,6 +2,7 @@ extends Area
 
 signal exploded
 
+export var emit_group = "player"
 export var muzzle_velocity = 60
 export var g = Vector3.DOWN * 40
 
@@ -15,8 +16,16 @@ func _physics_process(delta):
 	transform.origin += velocity * delta
 
 func _on_PhysicalBullet_body_entered(body):
-	if body.is_in_group("enemies"):
-		body.emit_signal("was_shot")
+	if emit_group == "enemies":
+		if  body.is_in_group("player"):
+			body.emit_signal("was_shot")
+			print("player was shot")
+		else:
+			print("the thing that was shot was: " + body.name)
+	else:
+		if body.is_in_group("enemies"):
+			body.emit_signal("was_shot")
+			print("enemy was shot")
 		
 	emit_signal("exploded")
 

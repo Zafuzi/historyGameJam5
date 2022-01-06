@@ -276,10 +276,10 @@ transform = Transform( -1.62921e-07, 0, -1, 3.17637e-21, 1, 0, 1, -1.29718e-17, 
 autostart = true
 
 [node name="SightRange" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.80376, 2.67003, -0.213766 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54403, 2.67003, -0.213766 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SightRange"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81886, 2.39318, -0.613715 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229585, 0.311445, 0.42726 )
 shape = SubResource( 2 )
 
 [node name="Eyes" type="Spatial" parent="."]
