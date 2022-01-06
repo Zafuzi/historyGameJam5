@@ -12,7 +12,7 @@ onready var loading_scene = "res://Assets/LoadingScreen.tscn"
 
 func _ready():
 	if not g_next_level:
-		g_next_level = "res://Assets/Levels/debug.tscn"
+		g_next_level = "res://Assets/Levels/Level1.tscn"
 
 func _process(delta):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(g_global_volume / 10));
