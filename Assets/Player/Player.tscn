@@ -90,13 +90,13 @@ __meta__ = {
 position = Vector2( 576, 64 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
-animation = "full"
+animation = "empty"
 
 [node name="Heart1" type="AnimatedSprite" parent="Head/Camera/CanvasLayer/Control"]
 position = Vector2( 640, 64 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
-animation = "full"
+animation = "empty"
 
 [node name="Heart2" type="AnimatedSprite" parent="Head/Camera/CanvasLayer/Control"]
 position = Vector2( 704, 64 )
