@@ -4,14 +4,14 @@
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=3]
+[sub_resource type="VisualShaderNodeScalarConstant" id=2]
 constant = 0.4
 
-[sub_resource type="VisualShaderNodeColorUniform" id=4]
+[sub_resource type="VisualShaderNodeColorUniform" id=3]
 uniform_name = "ColorUniform"
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=7]
-constant = 0.194
+[sub_resource type="VisualShaderNodeScalarConstant" id=4]
+constant = 1000.0
 
 [sub_resource type="VisualShader" id=5]
 code = "shader_type spatial;
@@ -35,7 +35,7 @@ void fragment() {
 	float n_out2p0 = 0.400000;
 
 // Scalar:4
-	float n_out4p0 = 0.194000;
+	float n_out4p0 = 1000.000061;
 
 // Output:0
 	ALBEDO = n_out3p0;
@@ -49,25 +49,26 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 0, 105.797 )
 flags/shadows_disabled = true
 flags/unshaded = true
 nodes/fragment/0/position = Vector2( 680, 100 )
-nodes/fragment/2/node = SubResource( 3 )
+nodes/fragment/2/node = SubResource( 2 )
 nodes/fragment/2/position = Vector2( 354, 215 )
-nodes/fragment/3/node = SubResource( 4 )
-nodes/fragment/3/position = Vector2( 360, 80 )
-nodes/fragment/4/node = SubResource( 7 )
-nodes/fragment/4/position = Vector2( 248, 285.797 )
+nodes/fragment/3/node = SubResource( 3 )
+nodes/fragment/3/position = Vector2( 320, 80 )
+nodes/fragment/4/node = SubResource( 4 )
+nodes/fragment/4/position = Vector2( 340, 300 )
 nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 2, 0, 0, 1, 4, 0, 0, 5 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
 shader_param/ColorUniform = Color( 0.458824, 0.941176, 0.478431, 1 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=7]
 
-[node name="level_completion_box" type="Area"]
+[node name="level_completion_box" type="Area" groups=[
+"completion_area",
+]]
 transform = Transform( 8.36718, 0, 0, 0, 3.86033, 0, 0, 0, 8.88799, 0, 3.15, 0 )
 script = ExtResource( 1 )
 
@@ -76,7 +77,6 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 material_override = SubResource( 6 )
-mesh = SubResource( 2 )
+mesh = SubResource( 7 )
 material/0 = null
-
 [connection signal="body_entered" from="." to="." method="_on_level_completion_box_body_entered"]
