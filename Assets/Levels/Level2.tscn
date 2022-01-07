@@ -440,12 +440,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -103.227, -0.980213, 12.8523 )
 [node name="GenericEnemy" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4519, -0.606138, -13.6082 )
 
-[node name="GenericEnemy3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -111.374, -1.18456, -47.9857 )
-
-[node name="GenericEnemy4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.098, -0.606138, -64.279 )
-
 [node name="GenericEnemy5" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4519, -0.606138, -106.872 )
 
