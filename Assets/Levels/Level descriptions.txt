@@ -5,9 +5,10 @@ Level 1: "bushranging with Harry Power" (tutorial)
 -----
 Ned from a young age begins to robs people, with Harry Power (his "mentor")
 
-this is just a free level meant as a intro to the mechanics and world
+this is just a free level meant as a intro to the mechanics and world, like going into the level box makes u 
+go to the next level
 
-can either be a tutorial about how to fight or an pretent "robbery"
+
 
 ----
 Level 2.1:   Fitzpatrick incident
