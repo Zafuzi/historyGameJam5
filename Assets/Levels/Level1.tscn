@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Materials/mud.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/godot assets/smallgrassblock.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/godot assets/crate_wooden.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Levels/Level2.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
@@ -307,6 +308,7 @@ transform = Transform( 1.11855, 0, 0, 0, 1.43125, 0, 0, 0, 1.12249, -0.0992203, 
 
 [node name="level_completion_box2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 14 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -148.535, -5.152, 60.0551 )
+next_scene = ExtResource( 15 )
 
 [node name="floor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.2844, -6.91126, -26.8426 )
