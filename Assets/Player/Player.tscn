@@ -37,9 +37,7 @@ height = 4.0
 [sub_resource type="CapsuleMesh" id=2]
 mid_height = 4.0
 
-[node name="Player" type="KinematicBody" groups=[
-"player",
-]]
+[node name="Player" type="KinematicBody" groups=["player"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -127,9 +125,7 @@ transform = Transform( 1, 8.74228e-08, 0, -3.55271e-15, -4.37114e-08, 1, 8.74228
 mesh = SubResource( 4 )
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="." groups=[
-"player",
-]]
+[node name="CollisionShape" type="CollisionShape" parent="." groups=["player"]]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
 
@@ -140,7 +136,7 @@ transform = Transform( -6.51683e-07, 0, 4, 0, 4, 0, -4, 0, -6.51683e-07, 0.93033
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.226598, 0, 1.49012e-08 )
 
 [node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.6
 one_shot = true
 
 [node name="GunShotSound" type="AudioStreamPlayer" parent="."]
@@ -157,6 +153,7 @@ material/0 = null
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collide_with_areas = true
+
 [connection signal="was_shot" from="." to="." method="_on_Player_was_shot"]
 [connection signal="pressed" from="Head/Camera/CanvasLayer/Control/ResumeButton" to="." method="_on_ResumeButton_pressed"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_ShotTimer_timeout"]
