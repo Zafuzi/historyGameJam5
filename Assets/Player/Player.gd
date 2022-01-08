@@ -141,3 +141,4 @@ func add_player_recoil():
 func _on_Player_was_shot():
 	health -= 1
 	$HitSound.play()
+	$OuchSound.play()
