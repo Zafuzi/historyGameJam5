@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ned_Kelly_Armor_Level.ogg-dcfd5375d1d9b58e92998c95e90d5cd4.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Ned_Kelly_Armor_Level.ogg"
+dest_files=[ "res://.import/Ned_Kelly_Armor_Level.ogg-dcfd5375d1d9b58e92998c95e90d5cd4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

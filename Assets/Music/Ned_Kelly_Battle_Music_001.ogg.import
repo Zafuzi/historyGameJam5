@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ned_Kelly_Battle_Music_001.ogg-4d28ffa8e9a0a5e6384d04de71d55f0d.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Ned_Kelly_Battle_Music_001.ogg"
+dest_files=[ "res://.import/Ned_Kelly_Battle_Music_001.ogg-4d28ffa8e9a0a5e6384d04de71d55f0d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

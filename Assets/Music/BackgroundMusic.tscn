@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Music/BackgroundMusic.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Music/Ned_Kelly_Theme.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Music/Ned_Kelly_3_-_Serious.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Music/Ned_Kelly_Armor_Level.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Music/Ned_Kelly_Battle_Music_001.ogg" type="AudioStream" id=5]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 pause_mode = 2
-volume_db = -38.421
 bus = "BackgroundMusic"
 script = ExtResource( 1 )
-menu_music = [ ExtResource( 2 ) ]
+menu_music = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
+[connection signal="finished" from="." to="." method="_on_BackgroundMusic_finished"]
