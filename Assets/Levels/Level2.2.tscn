@@ -1,20 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Assets/godot assets/fence_wooden.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/godot assets/crate_wooden.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Enemies/PoliceEnemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/godot assets/rock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/godot assets/big rock formation.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/godot assets/house_2_story.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Cover/CoverArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Materials/mud.tres" type="Material" id=1]
+[ext_resource path="res://Assets/godot assets/tall_tree_trunk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/godot assets/fence_wooden.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/godot assets/rock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/godot assets/big rock formation.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/godot assets/house_2_story.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/godot assets/wooden_wall_plank.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/Enemies/PoliceSniperEnemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/godot assets/tall_tree_trunk.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/godot assets/barrel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Materials/mud.tres" type="Material" id=14]
-[ext_resource path="res://Assets/Levels/Level2.2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/godot assets/crate_wooden.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/godot assets/rockyDoorWall.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Enemies/PoliceSniperEnemy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/godot assets/barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Cover/CoverArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Levels/Level3.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 0.701961, 0.87451, 1, 1 )
@@ -45,11 +45,39 @@ agent/height = 4.0
 agent/radius = 1.0
 
 [sub_resource type="CubeMesh" id=4]
-material = ExtResource( 14 )
+material = ExtResource( 1 )
 size = Vector3( 300, 2, 300 )
 
 [sub_resource type="ConcavePolygonShape" id=5]
 data = PoolVector3Array( -150, 1, 150, 150, 1, 150, -150, -1, 150, 150, 1, 150, 150, -1, 150, -150, -1, 150, 150, 1, -150, -150, 1, -150, 150, -1, -150, -150, 1, -150, -150, -1, -150, 150, -1, -150, 150, 1, 150, 150, 1, -150, 150, -1, 150, 150, 1, -150, 150, -1, -150, 150, -1, 150, -150, 1, -150, -150, 1, 150, -150, -1, -150, -150, 1, 150, -150, -1, 150, -150, -1, -150, 150, 1, 150, -150, 1, 150, 150, 1, -150, -150, 1, 150, -150, 1, -150, 150, 1, -150, -150, -1, 150, 150, -1, 150, -150, -1, -150, 150, -1, 150, 150, -1, -150, -150, -1, -150 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "RECOIL"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 84, 15 ), Vector3( 2.20872e-08, 90, 8.53774e-07 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gun:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.4, 1.1, 0.7 ), Vector3( 1.4, 1.1, 0.8 ) ]
+}
 
 [node name="Spatial" type="Spatial"]
 
@@ -57,8 +85,8 @@ data = PoolVector3Array( -150, 1, 150, 150, 1, 150, -150, -1, 150, 150, 1, 150, 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.319, 96.6019 )
 shadow_enabled = true
 
-[node name="Player" parent="." instance=ExtResource( 13 )]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 0, -1.37244, 67.6594 )
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -104.889, -0.545301, -104.157 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -71,218 +99,218 @@ navmesh = SubResource( 3 )
 [node name="Meshes" type="Spatial" parent="Navigation/NavigationMeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.09999, 0 )
 
-[node name="crate_wooden" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 9.34501, -5.84061, 46.485 )
 
-[node name="tree_trunk" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 11 )]
+[node name="tree_trunk" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
 transform = Transform( 1.54547, 0, 0, 0, 1.59451, 0, 0, 0, 1.3642, 6.29912, -6.77929, 22.8912 )
 
-[node name="crate_wooden2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 12.6472, -5.84061, 38.7782 )
 
-[node name="crate_wooden3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden3" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.28818, 0, 0, 0, 1.38423, 0, 0, 0, 1.3642, 6.19187, -5.84061, 41.8098 )
 
-[node name="rock" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+[node name="rock" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
 transform = Transform( 1.24566, 0, 2.39419, 0, 5.36814, 0, -4.16599, 0, 0.715879, 23.8748, -5.06232, -139.152 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock4" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock4" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock5" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock5" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( -0.820692, 0.67159, -0.100427, -0.880475, -2.04625, -0.588866, -2.13298, -2.13594, 2.66172, 0.0509753, 1.52975, -1.9577 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock5" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock5/rock4" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock5/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock5/rock4" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock5/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock6" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock6" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( -0.0681402, -1.22652, -0.0524876, 1.31476, -0.0796247, -0.160531, 0.351228, -0.222075, 0.973945, -0.250774, 0.328704, -10.2593 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock6" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 2.98023e-08, 0, 0, 0.690138, 0.33688, 5.96046e-08, -1.55459, 0.690138, -3.86779, 18.8032, -42.1532 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock5" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 4 )]
+[node name="rock5" parent="Navigation/NavigationMeshInstance/rock/rock6/rock4" instance=ExtResource( 6 )]
 transform = Transform( 2.80812, -0.246175, 0.00725621, 0.149651, 2.65916, 0.421582, -0.132371, -1.93878, 2.66554, -1.79395, 35.4046, -26.363 )
 
-[node name="rock7" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 4 )]
+[node name="rock7" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 6 )]
 transform = Transform( -0.432274, -3.06189, -0.840198, 3.82759, -0.231807, -0.467345, 0.773895, -3.26125, 2.44393, -22.2034, 0.328704, -50.8114 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock7" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.12799 )
 
-[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 4 )]
+[node name="rock2" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 0.690138, 0.33688, 0, -1.55459, 0.690138, 0, 1.19209e-07, -1.14921 )
 
-[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 4 )]
+[node name="rock4" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 1.11759e-08, -1.49012e-08, 1.49012e-08, 0.690138, 0.33688, -5.96046e-08, -1.55459, 0.690138, 0.500917, -6.54175, 6.19813 )
 
-[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 4 )]
+[node name="rock3" parent="Navigation/NavigationMeshInstance/rock/rock7/rock4" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.841794, -1.58332 )
 
-[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 5 )]
+[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock" instance=ExtResource( 7 )]
 transform = Transform( -0.160238, 0, -0.164967, 0, 0.186284, 0, 0.287048, 0, -0.27882, -28.1943, 1.20303, -54.7861 )
 
-[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 5 )]
+[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 7 )]
 transform = Transform( 0.922289, 0, 0.386502, 0, 1, 0, -0.386502, 0, 0.922289, -61.5194, 0.995493, -20.6428 )
 
-[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation" instance=ExtResource( 5 )]
+[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation" instance=ExtResource( 7 )]
 transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
 
-[node name="big rock formation3" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 5 )]
+[node name="big rock formation3" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 7 )]
 transform = Transform( -0.561361, 0, 0.827569, 0, 0.737131, 0, -0.827574, 0, -0.561362, 73.241, -5.31452, 31.5948 )
 
-[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation3" instance=ExtResource( 5 )]
+[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation3" instance=ExtResource( 7 )]
 transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
 
-[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation3" instance=ExtResource( 5 )]
+[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation3" instance=ExtResource( 7 )]
 transform = Transform( 0.826941, 0, 0.56228, 0, 1.87377, 0, -0.562291, 0, 0.826946, 43.0393, -6.05535, -1.50629 )
 
-[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 5 )]
+[node name="big rock formation2" parent="Navigation/NavigationMeshInstance/rock/big rock formation2" instance=ExtResource( 7 )]
 transform = Transform( -0.327793, 0, 0.944747, 0, 1, 0, -0.944751, 0, -0.327797, 136.757, 0.995493, 66.8914 )
 
-[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation2" instance=ExtResource( 5 )]
+[node name="big rock formation" parent="Navigation/NavigationMeshInstance/rock/big rock formation2/big rock formation2" instance=ExtResource( 7 )]
 transform = Transform( -0.370201, 0, 0.928952, 0, 1.87377, 0, -0.928952, 0, -0.370201, 24.6666, -6.05535, -38.094 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 3 )]
 transform = Transform( -0.0603576, 0, -1.32764, 0, 4.01854, 0, 1.07127, 0, -0.0487022, -29.4293, -8.87928, 29.5911 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 0.826147, 0, -0.563454, 0, 1, 0, 0.563454, 0, 0.826147, -1.62404, 4.76837e-07, 5.57112 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1.12823, 0, 0.170793, 0, 1, 0, 0.170792, 0, 1.22749, 68.3049, -4.76837e-07, -29.0039 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 77.151, 0.332694, -4.84959 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 1.19209e-07, 0, 1, 78.3441, 0.332694, 7.25829 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 66.589, -4.76837e-07, 33.3498 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( -0.0580927, 0, 1.58363, 0, 0.818345, 0, -1.27782, 0, -0.0719955, -8.17385, 0, 8.92436 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.01307, 0, 0.773872, 0, 1.19919, 0, -0.517948, 0, 1.51365, -46.8283, 0.215294, 32.5845 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, 0.177753, -0.169382, -11.5792 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden2/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden2/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, -0.152079, -0.169382, -27.034 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, 1.146, -0.169382, -9.32455 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71154e-08, 0, 0.909838, -28.7775, 0.332694, -4.22525 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wood" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wood" parent="Navigation/NavigationMeshInstance/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 0.155058, 0, 1.18549, 0, 1, 0, -0.987905, 0, 0.186069, -36.2224, -0.546228, 71.5444 )
 
-[node name="crate_wooden4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
+[node name="crate_wooden4" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -2.65265, -0.13577, 0, 0.141807, -2.77061, 0, 0, 0, 3.01909, -57.1903, -0.51137, 34.0899 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden4" index="0"]
 transform = Transform( 0.981635, -0.000143327, 0, -0.000140257, 1.00623, 0, 0, 0, 1.63731, -0.0992203, 0.918717, 0.0546665 )
 
-[node name="crate_wooden5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
+[node name="crate_wooden5" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -1.99307, -0.10201, 0, 0.094472, -1.84578, 0, 0, 0, 2.44762, -49.6754, -5.24507, 31.1322 )
 
-[node name="crate_wooden5" parent="Navigation/NavigationMeshInstance/crate_wooden5" instance=ExtResource( 2 )]
+[node name="crate_wooden5" parent="Navigation/NavigationMeshInstance/crate_wooden5" instance=ExtResource( 10 )]
 transform = Transform( 1, 3.72529e-09, 0, -1.49012e-08, 1, 0, 0, 0, 1, 0.103056, -2.01349, 0 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden5/crate_wooden5" index="0"]
 transform = Transform( 0.965909, -0.00450947, 0, -0.00441148, 1.07524, 0, 0, 0, 1.78067, -0.174494, 1.00628, 0.200516 )
 
-[node name="crate_wooden6" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden6" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.66775, 0, 0, 0, 1.54558, 0, 0, 0, 1.72283, -42.5194, -5.95242, 31.3769 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden6" index="0"]
 transform = Transform( 1.11855, 0, 0, 0, 1.43125, 0, 0, 0, 1.12249, -0.0992203, 1.35809, 0.0516987 )
 
-[node name="level_completion_box2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 7 )]
-transform = Transform( 6.27562, 0, 0, 0, 4, 0, 0, 0, 9.8004, -107.618, -5.152, -108.979 )
+[node name="level_completion_box2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 4 )]
+transform = Transform( 6.27562, 0, 0, 0, 11.7365, 0, 0, 0, 9.8004, -149.664, -1.46452, -12.7353 )
 next_scene = ExtResource( 15 )
 
 [node name="floor" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
@@ -295,159 +323,150 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/floor/StaticBody"]
 shape = SubResource( 5 )
 
-[node name="L-house2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 6 )]
+[node name="L-house2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.317, -3.86306, -106.147 )
 
 [node name="StaticBody" parent="Navigation/NavigationMeshInstance/L-house2" instance=ExtResource( 9 )]
 transform = Transform( -1.54958e-07, -3.54502, 0, 1.06095, -4.63757e-08, 0, 0, 0, 4.11788, -10.55, 14.9573, 98.4574 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 3 )]
 transform = Transform( -0.0603576, 0, -1.32764, 0, 4.01854, 0, 1.07127, 0, -0.0487022, -29.4293, -4.93726, 29.5911 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 0.826147, 0, -0.563454, 0, 1, 0, 0.563454, 0, 0.826147, -1.62404, 4.76837e-07, 5.57112 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1.12823, 0, 0.170793, 0, 1, 0, 0.170792, 0, 1.22749, 68.3049, -4.76837e-07, -29.0039 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 77.151, 0.332694, -4.84959 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 1.19209e-07, 0, 1, 78.3441, 0.332694, 7.25829 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 3.35276e-08, 0, 1, 0, -2.98023e-08, 0, 1, 66.589, -4.76837e-07, 33.3498 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( -0.0580927, 0, 1.58363, 0, 0.818345, 0, -1.27782, 0, -0.0719955, -8.17384, -0.127495, 8.92436 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.01307, 0, 0.773872, 0, 1.19919, 0, -0.517948, 0, 1.51365, -46.8283, 0.215294, 32.5845 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, 0.177753, -0.169382, -11.5792 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden2/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden2/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, -0.152079, -0.169382, -27.034 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1.7, 0, 0, 0, 1.12021, 0, 0, 0, 2.5417, 1.146, -0.169382, -9.32455 )
 
-[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden2" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71153e-08, 0, 0.909838, -28.7775, 0.332694, 6.64527 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden3" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 0.909839, 0, 2.71153e-08, 0, 1.15372, 0, -2.71154e-08, 0, 0.909838, -28.7775, 0.332694, -4.22525 )
 
-[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 1 )]
+[node name="fence_wooden" parent="Navigation/NavigationMeshInstance/fence_wooden2/fence_wooden3/fence_wooden3/fence_wooden3/fence_wooden3" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0564346, -0.101718, 5.85028 )
 
-[node name="fence_wood" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 1 )]
+[node name="fence_wood" parent="Navigation/NavigationMeshInstance/fence_wooden2" instance=ExtResource( 3 )]
 transform = Transform( 0.155058, 0, 1.18549, 0, 1, 0, -0.987905, 0, 0.186069, -36.2224, -0.546228, 71.5444 )
 
-[node name="crate_wooden7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden7" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.66775, 0, 0, 0, 1.54558, 0, 0, 0, 1.72283, -42.5194, -1.46607, 31.3769 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden7" index="0"]
 transform = Transform( 1.11855, 0, 0, 0, 1.43125, 0, 0, 0, 1.12249, -0.0992203, 1.35809, 0.0516987 )
 
-[node name="crate_wooden8" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden8" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.66775, 0, 0, 0, 1.54558, 0, 0, 0, 1.72283, -46.4518, -1.05244, 31.3769 )
 
-[node name="crate_wooden9" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 12 )]
+[node name="crate_wooden9" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 13 )]
 transform = Transform( 1.66775, 0, 0, 0, 1.54558, 0, 0, 0, 1.72283, -61.8288, -5.95242, 31.3769 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden9" index="0"]
 transform = Transform( 1.11855, 0, 0, 0, 1.43125, 0, 0, 0, 1.12249, -0.0992203, 1.35809, 0.0516987 )
 
-[node name="crate_wooden10" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
+[node name="crate_wooden10" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -2.65265, -0.13577, 0, 0.141807, -2.77061, 0, 0, 0, 3.01909, -67.8776, -0.51137, 34.0899 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden10" index="0"]
 transform = Transform( 0.981635, -0.000143327, 0, -0.000140257, 1.00623, 0, 0, 0, 1.63731, -0.0992203, 0.918717, 0.0546665 )
 
-[node name="crate_wooden11" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
+[node name="crate_wooden11" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -2.65265, -0.13577, 0, 0.141807, -2.77061, 0, 0, 0, 3.01909, -77.0353, -0.51137, 34.0899 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden11" index="0"]
 transform = Transform( 0.981635, -0.000143327, 0, -0.000140257, 1.00623, 0, 0, 0, 1.63731, -0.0992203, 0.918717, 0.0546665 )
 
-[node name="crate_wooden12" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 2 )]
+[node name="crate_wooden12" parent="Navigation/NavigationMeshInstance" instance=ExtResource( 10 )]
 transform = Transform( -2.65265, -0.13577, 0, 0.141807, -2.77061, 0, 0, 0, 3.01909, -62.5751, 4.6268, 34.0899 )
 
 [node name="CollisionShape" parent="Navigation/NavigationMeshInstance/crate_wooden12" index="0"]
 transform = Transform( 0.981635, -0.000143327, 0, -0.000140257, 1.00623, 0, 0, 0, 1.63731, -0.0992203, 0.918717, 0.0546665 )
 
-[node name="CoverArea" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5426, -4.8581, -22.0118 )
-
-[node name="CoverArea2" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.3717, 1.93491, 27.2626 )
-
-[node name="CoverArea3" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83.9662, -0.980213, -49.0243 )
-
-[node name="CoverArea4" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -115.849, -0.980213, -46.3138 )
-
-[node name="CoverArea5" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -113.814, -2.4683, -12.1125 )
-
-[node name="CoverArea6" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -78.1044, -0.980213, 43.9381 )
-
-[node name="CoverArea7" parent="Navigation" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -103.227, -0.980213, 12.8523 )
+[node name="CoverArea7" parent="Navigation/NavigationMeshInstance/crate_wooden12" instance=ExtResource( 14 )]
+transform = Transform( -0.375997, 0.0184252, 0, -0.0192445, -0.359988, 0, 0, 0, 0.331226, 15.1817, 2.80078, -7.03444 )
 visible = false
 
-[node name="GenericEnemy" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4519, -0.606138, -13.6082 )
-
-[node name="GenericEnemy5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4519, -0.606138, -106.872 )
-
-[node name="CoverArea3" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.1528, -0.980213, -32.9253 )
-
-[node name="SniperEnemy" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -124.934, 13.7327, -18.2202 )
+[node name="SniperEnemy" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -117.263, -4.0272, -85.0069 )
+bullet_drop = 0
 
 [node name="CollisionShape" parent="SniperEnemy/SightRange" index="0"]
-transform = Transform( 2.12171, 0, 0, 0, 1, 0, 0, 0, 0.884778, 26.7722, -7.81563, 8.89969 )
+transform = Transform( 2.50959, 0, 0, 0, 1, 0, 0, 0, 0.884778, 26.7722, -7.81563, 8.89969 )
 
-[node name="SniperEnemy2" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -96.7116, -3.55192, -51.0028 )
+[node name="SniperEnemy2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -118.637, -4.0757, -94.8801 )
+bullet_drop = 0
+
+[node name="Gun" parent="SniperEnemy2" index="0"]
+transform = Transform( -8.74228e-08, 7.7099e-10, 2, 2.98023e-08, 2, -7.70989e-10, -2, 2.98023e-08, -8.74228e-08, 1.4, 1.1, 0.8 )
 
 [node name="CollisionShape" parent="SniperEnemy2/SightRange" index="0"]
-transform = Transform( 3.14491, 0, 0, 0, 1, 0, 0, 0, 0.915584, 5.14051, 0, 0 )
+transform = Transform( 4.48476, 0, 0, 0, 0.988282, 0, 0, 0, 0.904855, 18.1255, 0, 15.8059 )
+
+[node name="SniperEnemy3" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -105.311, 11.0275, -99.306 )
+bullet_drop = 0
+
+[node name="CollisionShape" parent="SniperEnemy3/SightRange" index="0"]
+transform = Transform( 3.15555, 0, 0, 0, 1, 0, 0, 0, 0.884778, 20.4445, -7.81563, 17.4746 )
+
+[node name="AnimationPlayer" parent="SniperEnemy3" index="3"]
+anims/RECOIL = SubResource( 6 )
+
+[node name="rockyWindowWall" parent="." instance=ExtResource( 11 )]
+transform = Transform( -2.0782, 0, -2.00241e-07, 0, 3.28449, 0, 3.00359e-07, 0, -3.78668, -142.769, -0.767116, -9.05083 )
 
 [editable path="Navigation/NavigationMeshInstance/crate_wooden4"]
 [editable path="Navigation/NavigationMeshInstance/crate_wooden5/crate_wooden5"]
@@ -461,3 +480,5 @@ transform = Transform( 3.14491, 0, 0, 0, 1, 0, 0, 0, 0.915584, 5.14051, 0, 0 )
 [editable path="SniperEnemy/police body"]
 [editable path="SniperEnemy2"]
 [editable path="SniperEnemy2/police body"]
+[editable path="SniperEnemy3"]
+[editable path="SniperEnemy3/police body"]

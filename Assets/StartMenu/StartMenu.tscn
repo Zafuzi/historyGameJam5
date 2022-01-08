@@ -1,16 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/StartMenu/StartMenuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/StartMenu/StartMenu.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Fonts/roller-alika-font/RollerAlikaDemibold-OVyGe.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/title_screen.png" type="Texture" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 92
-outline_size = 4
-outline_color = Color( 0.286275, 0.211765, 0.211765, 1 )
-extra_spacing_char = 10
-font_data = ExtResource( 3 )
 
 [node name="StartMenu" type="Control"]
 anchor_right = 1.0
@@ -32,23 +24,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CenterContainer"]
-visible = false
-margin_left = 229.0
-margin_top = 304.0
-margin_right = 1051.0
-margin_bottom = 415.0
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.92549, 0.898039, 0.815686, 1 )
-custom_colors/font_color_shadow = Color( 0.392157, 0.368627, 0.352941, 1 )
-custom_constants/shadow_offset_x = 7
-custom_constants/shadow_offset_y = 6
-text = "Shootout Kelly"
-
 [node name="TitleScreen" type="Sprite" parent="CenterContainer"]
-position = Vector2( 615, 377 )
-scale = Vector2( 1.01758, 1.01172 )
+position = Vector2( 614, 373 )
+scale = Vector2( 1.28516, 1.41406 )
 texture = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -93,6 +71,26 @@ margin_bottom = 117.0
 size_flags_horizontal = 0
 size_flags_vertical = 2
 text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0.278431, 0.0431373, 0.0431373, 1 )
+margin_left = 992.0
+margin_top = 468.0
+margin_right = 1254.0
+margin_bottom = 736.0
+text = "Coding and Level Design:
+zafuzi
+Daniel S
+
+Art:
+Daniel S
+
+Music:
+CapuchinBounty"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

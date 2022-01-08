@@ -96,4 +96,5 @@ quality/driver/driver_name="GLES2"
 quality/driver/fallback_to_gles2=true
 vram_compression/import_etc=true
 quality/filters/anisotropic_filter_level=1
+environment/default_clear_color=Color( 0.945098, 0.890196, 0.815686, 1 )
 quality/subsurface_scattering/quality=2
