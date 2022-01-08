@@ -37,7 +37,6 @@ color = Color( 0.168627, 0.0431373, 0.0431373, 1 )
 
 [node name="InGameMenu" type="PopupMenu" parent="CenterContainer"]
 pause_mode = 2
-visible = true
 margin_left = 534.0
 margin_top = 262.0
 margin_right = 746.0

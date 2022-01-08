@@ -1,5 +1,11 @@
 extends CanvasLayer
 
+func _ready():
+		# dont show quit button in html version of the game
+	var os = OS.get_name()
+	if os == "HTML5":
+		$CenterContainer/InGameMenu.remove_item(3)
+
 func _input(event):
 	if Input.is_action_just_pressed("mouse_release"):
 		close()
