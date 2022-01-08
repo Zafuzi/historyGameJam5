@@ -8,6 +8,7 @@
 
 [node name="BackgroundMusic" type="AudioStreamPlayer"]
 pause_mode = 2
+volume_db = -10.0
 bus = "BackgroundMusic"
 script = ExtResource( 1 )
 menu_music = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
