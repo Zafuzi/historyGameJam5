@@ -86,12 +86,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.319, 96.6019 )
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -104.889, -0.545301, -104.157 )
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -104.889, -0.545301, -104.157 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="Navigation" type="Navigation" parent="." groups=["navigation"]]
+[node name="Navigation" type="Navigation" parent="." groups=[
+"navigation",
+]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 navmesh = SubResource( 3 )
@@ -469,16 +471,29 @@ anims/RECOIL = SubResource( 6 )
 transform = Transform( -2.0782, 0, -2.00241e-07, 0, 3.28449, 0, 3.00359e-07, 0, -3.78668, -142.769, -0.767116, -9.05083 )
 
 [editable path="Navigation/NavigationMeshInstance/crate_wooden4"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden5/crate_wooden5"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden6"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden7"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden9"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden10"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden11"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden12"]
+
 [editable path="SniperEnemy"]
+
 [editable path="SniperEnemy/police body"]
+
 [editable path="SniperEnemy2"]
+
 [editable path="SniperEnemy2/police body"]
+
 [editable path="SniperEnemy3"]
+
 [editable path="SniperEnemy3/police body"]

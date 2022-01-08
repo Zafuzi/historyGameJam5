@@ -9,6 +9,17 @@ var g_music_volume 			: int 					= 10
 var g_sfx_volume 			: int 					= 10
 
 onready var loading_scene = "res://Assets/LoadingScreen.tscn"
+onready var in_game_menu = "res://Assets/StartMenu/InGameMenu.tscn"
+
+func _input(event):
+	if Input.is_action_just_pressed("mouse_release"):
+		print(get_tree().get_current_scene().name)
+		if get_tree().get_current_scene().name != "StartMenu":
+			get_tree().paused = true
+			var menu = load(in_game_menu).instance()
+			get_tree().get_current_scene().add_child(menu)
+			menu.open()
+		
 
 func _ready():
 	if not g_next_level:

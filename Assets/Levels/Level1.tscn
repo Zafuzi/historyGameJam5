@@ -63,7 +63,9 @@ transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107,
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="Navigation" type="Navigation" parent="." groups=["navigation"]]
+[node name="Navigation" type="Navigation" parent="." groups=[
+"navigation",
+]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 navmesh = SubResource( 3 )
@@ -333,5 +335,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -85.4519, -0.606138, -13.6082 
 transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -165.853, -1.85112, 56.5259 )
 
 [editable path="Navigation/NavigationMeshInstance/crate_wooden4"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden5/crate_wooden5"]
+
 [editable path="Navigation/NavigationMeshInstance/crate_wooden6"]
