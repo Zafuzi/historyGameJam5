@@ -5,13 +5,7 @@
 [ext_resource path="res://Assets/Enemies/PoliceSniperEnemy_NO_UP_ROTATION.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Levels/Level4.tscn" type="PackedScene" id=5]
-
-[sub_resource type="Environment" id=1]
-background_mode = 1
-background_color = Color( 0.0980392, 0.0823529, 0.0823529, 1 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 1.11
-ambient_light_sky_contribution = 0.0
+[ext_resource path="res://defaultEnvironment.tres" type="Environment" id=6]
 
 [sub_resource type="Animation" id=2]
 resource_name = "RECOIL"
@@ -104,7 +98,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 69.319, 96.6019 )
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = ExtResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 4.71138, 7.46635, 0 )
