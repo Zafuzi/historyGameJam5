@@ -1,14 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Bullet/PhysicalBullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sounds/gunshot.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Assets/rifle.glb" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Enemies/GenericEnemy.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Sprites/enemy_status_resting.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/enemy_status_covering.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/enemy_status_moving.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/enemy_status_shooting.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/enemy_status_idle.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Enemies/police_body.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
@@ -45,34 +40,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 1.4, 1.1, 0.7 ), Vector3( 1.4, 1.1, 0.8 ) ]
 }
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-} ]
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 0.870395
@@ -306,12 +273,6 @@ autostart = true
 [node name="RestTimer" type="Timer" parent="."]
 wait_time = 8.0
 autostart = true
-
-[node name="StatusLabel" type="AnimatedSprite3D" parent="."]
-transform = Transform( -4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 1.76308, 4, -2.66218e-07 )
-frames = SubResource( 4 )
-animation = "4"
-playing = true
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -2.71798e-08, -1.21954, 0, 0.6218, -5.33076e-08, 1.81, 0.897016, 0.0999725 )

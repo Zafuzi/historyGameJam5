@@ -185,7 +185,6 @@ func _physics_process(delta):
 		RESTING:
 			move()
 	
-	$StatusLabel.play(str(state))
 
 func stop_walk_animation_if_possible():
 	if get_node_or_null("walkingAnimation"):
