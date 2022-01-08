@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/crosshair.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/rifle.glb" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sprites/heart_full.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/heart_empty.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sounds/hit.ogg" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -132,6 +133,9 @@ one_shot = true
 stream = ExtResource( 3 )
 volume_db = -13.287
 pitch_scale = 0.8
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="PlayerBody" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
