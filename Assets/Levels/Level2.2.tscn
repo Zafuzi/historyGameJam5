@@ -441,7 +441,7 @@ transform = Transform( -0.375997, 0.0184252, 0, -0.0192445, -0.359988, 0, 0, 0, 
 visible = false
 
 [node name="SniperEnemy" parent="." instance=ExtResource( 12 )]
-transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -117.263, -4.0272, -85.0069 )
+transform = Transform( 1.22247, 0, 0, 0, 1.14906, 0, 0, 0, 1.34735, -122.263, -4.0272, -48.0069 )
 bullet_drop = 0
 
 [node name="CollisionShape" parent="SniperEnemy/SightRange" index="0"]

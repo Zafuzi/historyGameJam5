@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/godot assets/wooden_wall_plank.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Enemies/PoliceSniperEnemy_NO_UP_ROTATION.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Levels/level_completion_hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Levels/Level4.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -367,6 +368,7 @@ transform = Transform( 1, 0, 0, -7.10543e-15, 1, 0, 0, 0, 1, 4.30178, 7.71285, 1
 
 [node name="level_completion_box" parent="Meshes" instance=ExtResource( 4 )]
 transform = Transform( -11.3934, 0, -2.11631e-06, 0, 13.3835, 0, 1.72035e-06, 0, -14.0157, 2.44692, -64.3947, -341.401 )
+next_scene = ExtResource( 5 )
 
 [editable path="SniperEnemy"]
 
