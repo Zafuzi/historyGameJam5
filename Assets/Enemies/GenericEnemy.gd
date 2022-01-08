@@ -9,11 +9,12 @@ enum {
 }
 var state = IDLE
 const TURN_SPEED = 10
-const GUN_RANGE = 40
+const GUN_RANGE = 60
 const COVER_RANGE = 30
 const SIGHT_RANGE = 60
 export var gun_shot_randomness = 5 
 export var health = 2
+export  (float) var bullet_drop = 1.0
 
 
 onready var player = get_tree().get_nodes_in_group("player")[0]
@@ -87,6 +88,7 @@ func shoot():
 				b.transform = $Gun/Muzzle.global_transform
 				b.velocity = -b.transform.basis.z * b.muzzle_velocity
 				b.velocity += Vector3.ONE*rng.randi_range(-gun_shot_randomness,gun_shot_randomness)
+				b.g *= bullet_drop
 				b.emit_group = "enemies"
 		
 func calculate_move_to(pos):
@@ -183,7 +185,6 @@ func _physics_process(delta):
 		RESTING:
 			move()
 	
-	$StatusLabel.play(str(state))
 
 func stop_walk_animation_if_possible():
 	if get_node_or_null("walkingAnimation"):
@@ -194,4 +195,3 @@ func start_walking_animation_if_possible():
 		$walkingAnimation.playback_speed = 2
 		$walkingAnimation.play("walking")
 		
-	

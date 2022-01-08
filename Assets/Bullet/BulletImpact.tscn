@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_transparent = true
-albedo_color = Color( 1, 0.305882, 0.00392157, 0 )
+albedo_color = Color( 0.968627, 0.85098, 0.0901961, 1 )
 
 [node name="BulletImpact" type="Spatial"]
 script = ExtResource( 1 )
@@ -46,4 +46,5 @@ anims/BulletImpact = SubResource( 1 )
 [node name="BulletImpactMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
+
 [connection signal="animation_finished" from="BulletImpactAnimation" to="." method="_on_BulletImpactAnimation_animation_finished"]

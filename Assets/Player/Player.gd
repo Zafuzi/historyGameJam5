@@ -27,23 +27,10 @@ var direction = Vector3()
 var shotTimerReady = true
 
 func _ready():
-	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#rng.randomize()
 
 func _input(event):
-	if Input.is_action_just_pressed("mouse_capture"):
-		get_tree().paused = false
-		$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		get_tree().set_input_as_handled()
-	
-	if Input.is_action_just_pressed("mouse_release"):
-		get_tree().paused = true
-		$Head/Camera/CanvasLayer/Control/ResumeButton.show()
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().set_input_as_handled()
-		
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 
@@ -141,10 +128,6 @@ func _on_ShotTimer_timeout():
 	shotTimerReady = true
 	pass # Replace with function body.
 
-func _on_ResumeButton_pressed():
-	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Head/Camera/CanvasLayer/Control/ResumeButton.hide()
 
 func add_player_recoil():
 	rotate_y(deg2rad(rng.randi_range(-recoil,recoil)))
