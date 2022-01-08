@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Ned_Kelly_Armor_Level.ogg-dcfd5375d1d9b58e92998c95e9
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

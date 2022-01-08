@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Ned_Kelly_3_-_Serious.ogg-9867614ebad63556882be58683
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

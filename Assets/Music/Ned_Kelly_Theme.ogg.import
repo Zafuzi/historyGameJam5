@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Ned_Kelly_Theme.ogg-6d05ee9972adb8e8ace12dc25c1301b6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
